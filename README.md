@@ -1,7 +1,8 @@
 # OpenForge Ionic Monorepo Example
 
-This is a template project for all Ionic + Angular Monorepos.   
-It was generated using a combination of [Nx](https://nx.dev), Ionic [Thanks to Eric Jeker's Post on Ionic + Nrwl](https://medium.com/@eric.jeker/how-to-integrate-ionic-in-nrwl-nx-3493fcb7e85e), [StyleLint](https://stylelint.io/), and [ESLint](https://eslint.org/).
+This is a template project for all you aspiring video game developers out there!   Want to use your web application skills for creating an awesome video game? 
+
+This repository will give you a great starting point! 
 
 # Instructions
 
