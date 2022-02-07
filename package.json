@@ -67,6 +67,7 @@
         "@nrwl/eslint-plugin-nx": "^13.2.1",
         "husky": "^7.0.4",
         "lint-staged": "^12.1.1",
+        "nx": "^13.7.3",
         "rxjs": "~7.4.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.11.4"
