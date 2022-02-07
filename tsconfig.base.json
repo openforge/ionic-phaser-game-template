@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@company-name/example-app/ionic/ui-buttons": [
+        "libs/example-app/ionic/ui-buttons/src/index.ts"
+      ],
       "@company-name/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ]

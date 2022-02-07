@@ -3,6 +3,7 @@
   "projects": {
     "example-app": "apps/example-app",
     "example-app-e2e": "apps/example-app-e2e",
+    "example-app-ionic-ui-buttons": "libs/example-app/ionic/ui-buttons",
     "shared-data-access": "libs/shared/data-access"
   }
 }
