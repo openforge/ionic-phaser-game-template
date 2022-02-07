@@ -1,7 +1,12 @@
 {
-    "version": 2,
-    "projects": {
-        "example-app": "apps/example-app",
-        "example-app-e2e": "apps/example-app-e2e"
-    }
+  "version": 2,
+  "projects": {
+    "example-app": "apps/example-app",
+    "example-app-e2e": "apps/example-app-e2e",
+    "example-app-ionic-ui-buttons": "libs/example-app/ionic/ui-buttons",
+    "example-app-ionic-ui-headers": "libs/example-app/ionic/ui-headers",
+    "example-app-ionic-ui-modals": "libs/example-app/ionic/ui-modals",
+    "example-app-phaser-ui-modals": "libs/example-app/phaser/ui-modals",
+    "shared-data-access": "libs/shared/data-access"
+  }
 }
