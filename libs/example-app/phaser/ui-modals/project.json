@@ -1,0 +1,28 @@
+{
+  "projectType": "library",
+  "root": "libs/example-app/phaser/ui-modals",
+  "sourceRoot": "libs/example-app/phaser/ui-modals/src",
+  "prefix": "company-name",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/example-app/phaser/ui-modals"
+      ],
+      "options": {
+        "jestConfig": "libs/example-app/phaser/ui-modals/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/example-app/phaser/ui-modals/src/**/*.ts",
+          "libs/example-app/phaser/ui-modals/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
