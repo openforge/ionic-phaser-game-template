@@ -7,8 +7,13 @@
               <ion-title>Ionic Menu</ion-title>
             </ion-toolbar>
           </ion-header>
+          <ion-content>
+            <ion-list>
+              <ion-item><ion-button [routerLink]="['/home']">Go to Home</ion-button></ion-item>
+              <ion-item><ion-button [routerLink]="['/shop']">Go to Shop</ion-button></ion-item>
+            </ion-list>
+          </ion-content>
         </ion-menu>
-      
         <!-- the main content -->
         <ion-router-outlet id="main"></ion-router-outlet>
     </ion-split-pane>
