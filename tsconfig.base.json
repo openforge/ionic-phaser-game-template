@@ -24,6 +24,9 @@
       "@company-name/example-app/ionic/ui-headers": [
         "libs/example-app/ionic/ui-headers/src/index.ts"
       ],
+      "@company-name/example-app/ionic/ui-modals": [
+        "libs/example-app/ionic/ui-modals/src/index.ts"
+      ],
       "@company-name/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ]

@@ -5,6 +5,7 @@
     "example-app-e2e": "apps/example-app-e2e",
     "example-app-ionic-ui-buttons": "libs/example-app/ionic/ui-buttons",
     "example-app-ionic-ui-headers": "libs/example-app/ionic/ui-headers",
+    "example-app-ionic-ui-modals": "libs/example-app/ionic/ui-modals",
     "shared-data-access": "libs/shared/data-access"
   }
 }

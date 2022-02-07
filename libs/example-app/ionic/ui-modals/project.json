@@ -1,0 +1,28 @@
+{
+  "projectType": "library",
+  "root": "libs/example-app/ionic/ui-modals",
+  "sourceRoot": "libs/example-app/ionic/ui-modals/src",
+  "prefix": "company-name",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/example-app/ionic/ui-modals"
+      ],
+      "options": {
+        "jestConfig": "libs/example-app/ionic/ui-modals/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/example-app/ionic/ui-modals/src/**/*.ts",
+          "libs/example-app/ionic/ui-modals/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
