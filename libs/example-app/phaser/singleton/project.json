@@ -1,0 +1,28 @@
+{
+  "projectType": "library",
+  "root": "libs/example-app/phaser/singleton",
+  "sourceRoot": "libs/example-app/phaser/singleton/src",
+  "prefix": "company-name",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/example-app/phaser/singleton"
+      ],
+      "options": {
+        "jestConfig": "libs/example-app/phaser/singleton/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/example-app/phaser/singleton/src/**/*.ts",
+          "libs/example-app/phaser/singleton/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
