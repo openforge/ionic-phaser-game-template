@@ -1,7 +1,8 @@
 {
-    "version": 2,
-    "projects": {
-        "example-app": "apps/example-app",
-        "example-app-e2e": "apps/example-app-e2e"
-    }
+  "version": 2,
+  "projects": {
+    "example-app": "apps/example-app",
+    "example-app-e2e": "apps/example-app-e2e",
+    "shared-data-access": "libs/shared/data-access"
+  }
 }
