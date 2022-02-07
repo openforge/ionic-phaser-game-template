@@ -1,3 +1,3 @@
 
-        export * from './lib/example-app-phaser-singleton.module';
-        
+
+export * from './lib/phaser-singleton.module';
