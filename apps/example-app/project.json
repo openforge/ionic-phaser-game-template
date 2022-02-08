@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/example-app",
   "sourceRoot": "apps/example-app/src",
-  "prefix": "openforge-ionic-monorepo-example",
+  "prefix": "opneforge",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
