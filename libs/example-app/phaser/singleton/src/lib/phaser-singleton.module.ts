@@ -4,14 +4,15 @@ import * as Phaser from 'phaser';
 
 import { ForgeScene } from './scenes/forge.scene';
 
+/**
+ * * The PhaserInstance is a singleton that controls the Game Scene, which is the UI portion of the Game Engine
+ */
+
 @NgModule({
     imports: [CommonModule],
     declarations: [],
     exports: [],
 })
-/**
- * * The PhaserInstance is a singleton that controls the Game Scene, which is the UI portion of the Game Engine
- */
 export class PhaserSingletonService {
     // * We need the Phaser.Game to live inside our own class because extending Phaser.Game would require a super call
     private static activeGame: Phaser.Game;
@@ -21,7 +22,7 @@ export class PhaserSingletonService {
         if (parentModule) {
             console.error('Phaser Singleton is already loaded. Import it in the AppModule only');
         } else {
-          PhaserSingletonService.ngZone = this._ngZone;
+            PhaserSingletonService.ngZone = this._ngZone;
         }
     }
 
@@ -57,7 +58,7 @@ export class PhaserSingletonService {
      * ! Should only be called *when* we want it to load in memory.  I.e. during simulation.
      */
     public static async init() {
-      console.warn('phaser-singleton init');
+        console.warn('phaser-singleton init');
         /**
          * * Phaser by default runs at 60 FPS, and each frame that triggers change detection in Angular which causes
          * * Performance to go out the door.  NgZone's runOutsideAngular will prevent Phaser from automatically hitting change detection

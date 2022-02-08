@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/example-app",
   "sourceRoot": "apps/example-app/src",
-  "prefix": "openforge-ionic-monorepo-example",
+  "prefix": "opneforge",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -29,8 +29,8 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "2mb",
+              "maximumError": "3mb"
             },
             {
               "type": "anyComponentStyle",
