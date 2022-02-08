@@ -9,7 +9,9 @@
       "devDependencies": "*"
     },
     ".eslintrc.json": "*",
-    ".stylelintrc.json": "*"
+    ".stylelintrc.json": "*",
+    "tsconfig.base.json": "*",
+    "tsconfig.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
