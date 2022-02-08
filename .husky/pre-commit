@@ -4,7 +4,5 @@
 echo "Setting Node Memory to 8 GB"
 export NODE_OPTIONS="--max-old-space-size=8192"
 
-echo "Verifying Project Builds..."
-npx nx build
-npx lint-staged
 echo "Linting Staged Files for consistency to OpenForge standards..."
+npx lint-staged

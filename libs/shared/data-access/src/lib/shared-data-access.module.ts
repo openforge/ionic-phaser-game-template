@@ -1,11 +1,7 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-        import { NgModule } from '@angular/core';
-        import { CommonModule } from '@angular/common';
-        
-        @NgModule({
-          imports: [
-            CommonModule
-          ]
-        })
-        export class SharedDataAccessModule { }
-        
+@NgModule({
+    imports: [CommonModule],
+})
+export class SharedDataAccessModule {}

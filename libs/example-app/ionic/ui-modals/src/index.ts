@@ -1,3 +1,1 @@
-
-        export * from './lib/example-app-ionic-ui-modals.module';
-        
+export * from './lib/example-app-ionic-ui-modals.module';
