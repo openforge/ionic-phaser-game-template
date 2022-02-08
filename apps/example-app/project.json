@@ -17,12 +17,7 @@
         "tsConfig": "apps/example-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/example-app/src/assets",
-          {
-            "glob": "**/*",
-            "input": "libs/example-app/phaser/singleton/src/assets",
-            "output": "assets/phaser-assets"
-          }
+          "apps/example-app/src/assets"
         ],
         "styles": [
           "apps/example-app/src/global.scss"

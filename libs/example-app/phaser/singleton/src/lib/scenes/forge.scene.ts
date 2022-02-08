@@ -10,8 +10,8 @@ export class ForgeScene extends Phaser.Scene {
     preload() {
         try {
             console.warn('Loading image');
-            this.load.image(this.backgroundKey, './assets/blank_coworking.png');
-            // this.load.svg(this.backgroundKey, this.backgroundKey, { scale: 1 });
+            this.load.setBaseURL('http://localhost:4200/');
+            this.load.image(this.backgroundKey, 'assets/blank_coworking.png');
         } catch (e) {
             console.error('preloader.scene.ts', 'error preloading', e);
         }
@@ -24,9 +24,9 @@ export class ForgeScene extends Phaser.Scene {
         console.warn('Creating scene image');
         // eslint-disable-next-line no-magic-numbers
         this.add.text(20, 20, 'Playing game!');
-        const backgroundImage = this.add.image(this.cameras.main.width, this.cameras.main.height, this.backgroundKey);
-        const scaleX = this.cameras.main.width / backgroundImage.width;
-        const scaleY = this.cameras.main.height / backgroundImage.height;
+        const backgroundImage = this.add.image((this.game.config.width as number) / 3, (this.game.config.height as number) / 2, this.backgroundKey);
+        const scaleX = (this.game.config.width as number) / backgroundImage.width;
+        const scaleY = (this.game.config.height as number) / backgroundImage.height;
         const scale = Math.max(scaleX, scaleY);
         backgroundImage.setScale(scale).setScrollFactor(0);
     }
