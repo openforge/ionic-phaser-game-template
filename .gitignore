@@ -105,3 +105,6 @@ dist
 
 # Angular cache
 .angular
+
+# DS_STORE
+.DS_Store
