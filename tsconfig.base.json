@@ -33,8 +33,8 @@
       "@company-name/example-app/phaser/ui-modals": [
         "libs/example-app/phaser/ui-modals/src/index.ts"
       ],
-      "@company-name/shared/data-access": [
-        "libs/shared/data-access/src/index.ts"
+      "@company-name/shared/data-access-model": [
+        "libs/shared/data-access-model/src/index.ts"
       ]
     }
   },
