@@ -1,4 +1,6 @@
 /* eslint-disable no-magic-numbers */
+// eslint-disable-next-line import/no-unresolved
+import { Blacksmith } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
 
 export class ForgeScene extends Phaser.Scene {
@@ -11,7 +13,7 @@ export class ForgeScene extends Phaser.Scene {
         super({ key: 'preloader' });
     }
 
-    preload() {
+    async preload() {
         try {
             console.log('forge.scene.ts', 'Preloading Assets...');
             // * First, set the base URL since we're just loading from the main application's asset folder
@@ -19,19 +21,25 @@ export class ForgeScene extends Phaser.Scene {
 
             // * Now load the background image
             this.load.image(this.backgroundKey, 'assets/blacksmith_bg.png');
-
-            // * Now load the blacksmith sprites
-            this.load.atlas(this.blacksmithKey, this.blacksmithSpriteSheet, this.blacksmithAtlas);
-            this.load.animation(this.backgroundKey + '_animation', 'assets/employee_sierra_anim.json');
+            // * Load the blacksmith sprites
+            await this.preloadBlacksmithCharacter();
         } catch (e) {
             console.error('preloader.scene.ts', 'error preloading', e);
         }
     }
 
     /**
+     * * Load the blacksmith sprites
+     */
+    preloadBlacksmithCharacter() {
+        this.load.atlas(this.blacksmithKey, this.blacksmithSpriteSheet, this.blacksmithAtlas);
+        this.load.animation(this.backgroundKey + '_animation', 'assets/employee_sierra_anim.json');
+    }
+
+    /**
      * * Phaser will only call create after all assets in Preload have been loaded
      */
-    create() {
+    async create() {
         console.log('forge.scene.ts', 'Creating Assets...');
         this.add.text(20, 20, 'Playing game!');
 
@@ -43,7 +51,6 @@ export class ForgeScene extends Phaser.Scene {
         backgroundImage.setScale(scale).setScrollFactor(0);
 
         // * Setup the Character Sprite
-        const sprite = this.add.sprite(400, 484, this.blacksmithKey);
-        sprite.play(this.blacksmithKey);
+        await Blacksmith.build(this, this.blacksmithKey);
     }
 }
