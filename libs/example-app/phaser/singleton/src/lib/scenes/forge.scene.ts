@@ -5,9 +5,9 @@ import * as Phaser from 'phaser';
 
 export class ForgeScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
-    private blacksmithKey = 'employee_sierra';
-    private blacksmithSpriteSheet = 'assets/employee_sierra.png';
-    private blacksmithAtlas = 'assets/employee_sierra_atlas.json';
+    private blacksmithKey = 'blacksmith_hammer';
+    private blacksmithSpriteSheet = 'assets/blacksmith_sprites.png';
+    private blacksmithAtlas = 'assets/blacksmith_sprites_atlas.json';
 
     constructor() {
         super({ key: 'preloader' });
@@ -33,7 +33,7 @@ export class ForgeScene extends Phaser.Scene {
      */
     preloadBlacksmithCharacter() {
         this.load.atlas(this.blacksmithKey, this.blacksmithSpriteSheet, this.blacksmithAtlas);
-        this.load.animation(this.backgroundKey + '_animation', 'assets/employee_sierra_anim.json');
+        this.load.animation(this.backgroundKey + '_animation', 'assets/blacksmith_sprites_anim.json');
     }
 
     /**

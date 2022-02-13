@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "blacksmith_hammer_1",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 6,
+                "y": 6
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_hammer_2",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 264,
+                "y": 6
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_hammer_3",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 522,
+                "y": 6
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_hammer_4",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 780,
+                "y": 6
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_idle_1",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 6,
+                "y": 405
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_idle_2",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 264,
+                "y": 405
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_idle_3",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 522,
+                "y": 405
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blacksmith_idle_4",
+            "frame": {
+                "w": 246,
+                "h": 387,
+                "x": 780,
+                "y": 405
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

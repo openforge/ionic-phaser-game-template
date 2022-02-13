@@ -1,0 +1,52 @@
+{
+    "anims": [
+        {
+            "key": "blacksmith_hammer",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "blacksmith_hammer",
+                    "frame": "blacksmith_hammer_1"
+                },
+                {
+                    "key": "blacksmith_hammer",
+                    "frame": "blacksmith_hammer_2"
+                },
+                {
+                    "key": "blacksmith_hammer",
+                    "frame": "blacksmith_hammer_3"
+                },
+                {
+                    "key": "blacksmith_hammer",
+                    "frame": "blacksmith_hammer_4"
+                }
+            ]
+        },
+        {
+            "key": "blacksmith_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "blacksmith_idle",
+                    "frame": "blacksmith_idle_1"
+                },
+                {
+                    "key": "blacksmith_idle",
+                    "frame": "blacksmith_idle_2"
+                },
+                {
+                    "key": "blacksmith_idle",
+                    "frame": "blacksmith_idle_3"
+                },
+                {
+                    "key": "blacksmith_idle",
+                    "frame": "blacksmith_idle_4"
+                }
+            ]
+        }
+    ]
+}
