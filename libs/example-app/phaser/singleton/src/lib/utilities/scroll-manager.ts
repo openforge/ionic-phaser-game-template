@@ -4,11 +4,9 @@ import * as Phaser from 'phaser';
 type BackgroundImage = Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.ComputedSize;
 type PanningTarget = Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.Transform;
 
-const PANNING_AXIS_VELOCITY = 12;
-
 export class ScrollManager {
     private startingPositionX = 0;
-    private startingPositionY = 800;
+    private startingPositionY = 0;
     private startScrollX = 0;
     private startScrollY = 0;
     private nextScrollX = 0;
@@ -21,24 +19,20 @@ export class ScrollManager {
     private scrollRight = false;
     private scrollUp = false;
     private scrollDown = false;
-    private canGoHalfOffscreen: boolean;
     private scene: Phaser.Scene;
     private backgroundImage: Phaser.GameObjects.Components.ComputedSize;
     private panningTarget: PanningTarget;
 
-    constructor(scene: Phaser.Scene, canGoHalfOffscreen: boolean) {
+    constructor(scene: Phaser.Scene) {
         console.log('scroll-manager.ts', 'Constructor for ScrollManager');
         this.scene = scene;
-        this.canGoHalfOffscreen = canGoHalfOffscreen;
         this.scene.events.on(Phaser.Scenes.Events.CREATE, this.create, this);
-        this.scene.events.on(Phaser.Scenes.Events.PRE_UPDATE, this.preUpdate, this);
         this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
     }
 
-    public changeStartingPosition(x: number, y: number) {
-        this.startingPositionX = x;
-        this.startingPositionY = y;
-    }
+    /**
+     * * Scrolls the scene to the center over a duration.  Higher the duration, the slower the scroll.
+     */
     public scrollToCenter() {
         this.scene.tweens.add({
             targets: this,
@@ -47,6 +41,13 @@ export class ScrollManager {
             duration: 1000,
         });
     }
+
+    /**
+     * * Scrolls to the specified coordinates
+     *
+     * @param x Origin number
+     * @param y Origin
+     */
     public scrollTo(x: number, y: number) {
         this.scene.tweens.add({
             targets: this,
@@ -94,68 +95,31 @@ export class ScrollManager {
             ease: Phaser.Math.Easing.Cubic.Out,
         });
     }
-    /**
-     * Attaches the same background drag listeners to game objects that overlay the background; otherwise,
-     *  many objects without appearance will capture events and seem to prevent dragging on certain areas of
-     *  the background.
-     *
-     * @param object the object to attach drag listeners to.
-     */
-    public registerScrollingElement(object: Phaser.GameObjects.GameObject) {
-        this.applyScrollingHandlers(object);
-    }
-
-    /**
-     *
-     * @param object usually a container, an object to move statically with the camera.
-     */
-    public registerFixedObject(object: Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.Transform) {
-        this.scene.events.on(Phaser.Scenes.Events.UPDATE, () => {
-            const { nextScrollX, nextScrollY } = this;
-            object.setPosition(nextScrollX, nextScrollY);
-        });
-    }
-
-    /**
-     * *
-     */
-    public cameraScrollLogic() {
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        this.scene.events.on(Phaser.Scenes.Events.UPDATE, () => {});
-    }
 
     /**
      * * Create call is necessary - here we handle the scroll coordinate logic
      */
     private create() {
+        // * Set drag distance to a reasonable amount to avoid accidental drag
         this.scene.input.dragDistanceThreshold = 16;
+
         const backgroundasImage = this.backgroundImage as Phaser.GameObjects.Image;
-        console.log('scroll-manager.ts', 'backgroundasImage = ', backgroundasImage);
         this.minScrollX = 0 - backgroundasImage.displayOriginX;
         this.minScrollY = 0 - backgroundasImage.displayOriginY;
         this.maxScrollX = this.backgroundImage.displayWidth - this.scene.scale.width;
         this.maxScrollY = this.backgroundImage.displayHeight - this.scene.scale.height;
-
-        if (this.canGoHalfOffscreen) {
-            const halfScreenWidth = this.scene.scale.width / 2;
-            const halfScreenHeight = this.scene.scale.height / 2;
-            this.minScrollX -= halfScreenWidth;
-            this.minScrollY -= halfScreenHeight;
-            this.maxScrollX += halfScreenWidth;
-            this.maxScrollY += halfScreenHeight;
-        }
 
         this.nextScrollX = this.startingPositionX;
         this.nextScrollY = this.startingPositionY;
         this.scene.cameras.main.setScroll(this.nextScrollX, this.nextScrollY);
         console.log('scroll-manager.ts', 'create() - Finished');
     }
-    private preUpdate() {
-        this.nextScrollX = this.nextScrollX + (this.scrollRight ? PANNING_AXIS_VELOCITY : 0) - (this.scrollLeft ? PANNING_AXIS_VELOCITY : 0);
-        this.nextScrollY = this.nextScrollY + (this.scrollUp ? PANNING_AXIS_VELOCITY : 0) - (this.scrollDown ? PANNING_AXIS_VELOCITY : 0);
-    }
 
+    /**
+     * * Required phaser lifecycle event, happens every tick.
+     */
     private update() {
+        // ---> Noisy log console.log('scroll-manager.ts', 'update');
         this.scene.cameras.main.setScroll(this.nextScrollX, this.nextScrollY);
         if (this.panningTarget) {
             const { x: pointerX, y: pointerY } = this.scene.input.activePointer;
@@ -169,6 +133,12 @@ export class ScrollManager {
         }
     }
 
+    /**
+     * * Handles the actual scroll by listening for dragstart and drag
+     * * Note:
+     *
+     * @param object any Phaser.GameObjects.GameObject
+     */
     private applyScrollingHandlers(object: Phaser.GameObjects.GameObject) {
         if (!(object.input && object.input.enabled)) {
             object.setInteractive();

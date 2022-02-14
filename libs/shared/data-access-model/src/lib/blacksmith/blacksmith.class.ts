@@ -5,7 +5,7 @@ import { Human } from '../human/human.class';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     constructor(phaserScene: Phaser.Scene, textureKey: string) {
-        super(phaserScene, 400, 484, textureKey);
+        super(phaserScene, 0.5, 0.5, textureKey);
         this.scene.add.existing(this);
         this.setVisible(true);
         this.play(textureKey);

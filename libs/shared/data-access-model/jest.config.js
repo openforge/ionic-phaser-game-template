@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-data-access-model',
+  displayName: 'data-access-model',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
