@@ -73,6 +73,7 @@ export class PhaserSingletonService {
                     scale: {
                         mode: Phaser.Scale.RESIZE,
                         width: window.innerWidth,
+                        autoCenter: Phaser.Scale.CENTER_BOTH,
                         height: window.innerHeight,
                     },
                     parent: 'forge-main',

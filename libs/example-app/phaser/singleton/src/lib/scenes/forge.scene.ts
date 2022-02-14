@@ -3,11 +3,15 @@
 import { Blacksmith } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
 
+import { ScrollManager } from '../utilities/scroll-manager';
+
 export class ForgeScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
     private blacksmithKey = 'blacksmith_hammer';
     private blacksmithSpriteSheet = 'assets/blacksmith_sprites.png';
     private blacksmithAtlas = 'assets/blacksmith_sprites_atlas.json';
+    private blackSmith: Blacksmith;
+    private scrollManager: ScrollManager;
 
     constructor() {
         super({ key: 'preloader' });
@@ -41,16 +45,27 @@ export class ForgeScene extends Phaser.Scene {
      */
     async create() {
         console.log('forge.scene.ts', 'Creating Assets...');
-        this.add.text(20, 20, 'Playing game!');
 
         // * Setup the Background Image
         const backgroundImage = this.add.image((this.game.config.width as number) / 3, (this.game.config.height as number) / 2, this.backgroundKey);
         const scaleX = (this.game.config.width as number) / backgroundImage.width;
         const scaleY = (this.game.config.height as number) / backgroundImage.height;
         const scale = Math.max(scaleX, scaleY);
-        backgroundImage.setScale(scale).setScrollFactor(0);
 
         // * Setup the Character Sprite
-        await Blacksmith.build(this, this.blacksmithKey);
+        this.blackSmith = await Blacksmith.build(this, this.blacksmithKey);
+
+        // * Set all objects to the same scale for resizing
+        this.blackSmith.setScale(scale * 3);
+        backgroundImage.setScale(scale);
+
+        // * Now handle scrolling
+        this.cameras.main.setBackgroundColor('0xEBF0F3');
+
+        this.scrollManager = new ScrollManager(this, false);
+        this.scrollManager.registerScrollingBackground(backgroundImage);
+        // * Set cameras to the correct position
+        this.cameras.main.setZoom(1);
+        this.scrollManager.scrollToCenter();
     }
 }
