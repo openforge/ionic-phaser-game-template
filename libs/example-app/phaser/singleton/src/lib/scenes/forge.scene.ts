@@ -6,9 +6,7 @@ import { ScrollManager } from '../utilities/scroll-manager';
 
 export class ForgeScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
-    private blacksmithKey = 'blacksmith_hammer';
-    private blacksmithSpriteSheet = 'assets/blacksmith_sprites.png';
-    private blacksmithAtlas = 'assets/blacksmith_sprites_atlas.json';
+    private backgroundImageAsset = 'assets/blacksmith_bg.png';
     private blackSmith: Blacksmith;
     private scrollManager: ScrollManager;
     private backgroundImage: Phaser.GameObjects.Image;
@@ -24,7 +22,7 @@ export class ForgeScene extends Phaser.Scene {
             this.load.setBaseURL('http://localhost:4200/');
 
             // * Now load the background image
-            this.load.image(this.backgroundKey, 'assets/blacksmith_bg.png');
+            this.load.image(this.backgroundKey, this.backgroundImageAsset);
             // * Load the blacksmith sprites
             await this.preloadBlacksmithCharacter();
         } catch (e) {
@@ -36,8 +34,8 @@ export class ForgeScene extends Phaser.Scene {
      * * Load the blacksmith sprites
      */
     preloadBlacksmithCharacter() {
-        this.load.atlas(this.blacksmithKey, this.blacksmithSpriteSheet, this.blacksmithAtlas);
-        this.load.animation(this.backgroundKey + '_animation', 'assets/blacksmith_sprites_anim.json');
+        this.load.atlas(Blacksmith.blacksmithIdleKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
+        this.load.animation(this.backgroundKey, Blacksmith.blacksmithAnimation);
     }
 
     /**
@@ -47,10 +45,12 @@ export class ForgeScene extends Phaser.Scene {
         console.log('forge.scene.ts', 'Creating Assets...', this.scale.width, this.scale.height);
 
         // * Setup the Background Image
-        this.backgroundImage = this.add.image(0.5, 0.5, this.backgroundKey);
+        this.backgroundImage = this.add.image(0, 0, this.backgroundKey);
 
-        // * Setup the Character Sprite
-        this.blackSmith = await Blacksmith.build(this, this.blacksmithKey);
+        // * Setup the Blacksmith Character Sprite
+        this.blackSmith = await Blacksmith.build(this);
+        // * Because the blacksmith is a much smaller scale image than the background image, we need to scale it up.
+        this.blackSmith.setScale(3);
 
         // * Now handle scrolling
         this.cameras.main.setBackgroundColor('0xEBF0F3');
@@ -84,19 +84,8 @@ export class ForgeScene extends Phaser.Scene {
             console.log('baseSize.width:', baseSize.width, 'baseSize.height', baseSize.height);
         }
 
-        console.log('this.backgroundImage.width = ', this.backgroundImage.width);
-        const scaleX = tmpWidth / this.backgroundImage.width;
-        const scaleY = tmpHeight / this.backgroundImage.height;
-        console.log('scaleX =', scaleX);
-        console.log('scaleY =', scaleY);
-        const scale = Math.max(scaleX, scaleY);
-
-        // * Set all objects to the same scale for resizing
-        this.blackSmith.setScale(scale * 3);
-        // this.backgroundImage.setScale(scale);
+        console.log('this.backgroundImage.width = ', this.backgroundImage.width, this.backgroundImage.height);
 
         this.cameras.resize(gameSize.width, gameSize.height);
-        //  this.backgroundImage.setSize(gameSize.width, gameSize.height);
-        this.blackSmith.setPosition(gameSize.width / 2, gameSize.height / 2);
     }
 }
