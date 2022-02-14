@@ -12,6 +12,9 @@
                     <ion-item><ion-button [routerLink]="['/home']">Go to Home</ion-button></ion-item>
                     <ion-item><ion-button [routerLink]="['/shop']">Go to Shop</ion-button></ion-item>
                 </ion-list>
+                <div *ngFor="let action of actionsHistoryRef">
+                    <p>Action: {{action}}</p>
+                </div>
             </ion-content>
         </ion-menu>
         <!-- the main content -->

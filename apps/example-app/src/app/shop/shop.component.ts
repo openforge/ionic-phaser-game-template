@@ -11,4 +11,8 @@ export class ShopPageComponent implements OnInit {
     ngOnInit(): void {
         console.log('ShopPageComponent ngOnInit');
     }
+
+    purchaseSturdySword() {
+        console.log('tbd...');
+    }
 }
