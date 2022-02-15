@@ -5,3 +5,12 @@
 ion-card-content {
     height:250px;
 }
+
+ion-card {
+    img {
+        max-width: 70%;
+        min-height: 120px;
+        margin: auto;
+        display: block;
+    }
+}
