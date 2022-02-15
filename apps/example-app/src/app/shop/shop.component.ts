@@ -16,12 +16,12 @@ export class ShopPageComponent implements OnInit {
     }
 
     /**
-     * * Purchase Sturdy Sword
+     * * Purchase FANCY Sword
      */
-    public async purchaseSturdySword() {
-        console.log('shop.component.ts', 'Purchasing Sturdy Sword...');
+    public async purchaseFANCYSword() {
+        console.log('shop.component.ts', 'Purchasing FANCY Sword...');
         await this.router.navigate(['/home']); // * Travel home first so that Phaser exists
-        PhaserSingletonService.shopObservable.next(SwordTypeEnum.STURDY);
+        PhaserSingletonService.shopObservable.next(SwordTypeEnum.FANCY);
     }
 
     /**

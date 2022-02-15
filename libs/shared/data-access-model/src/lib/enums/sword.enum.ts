@@ -4,5 +4,5 @@
 
 export enum SwordTypeEnum {
     CHEAP = 'CHEAP',
-    STURDY = 'STURDY',
+    FANCY = 'FANCY',
 }
