@@ -28,6 +28,7 @@ export class FancySword extends Phaser.GameObjects.Image implements Sword {
             phaserScene.add.existing(tmpObject);
             tmpObject.setScale(1);
             tmpObject.setVisible(true);
+            tmpObject.rotation += Math.random() * (0.7 - 0.2 + 0.3);
             console.log('fancy_sword.class', 'Finished building!...');
             return tmpObject;
         } catch (e) {
