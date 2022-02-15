@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
+import { SwordTypeEnum } from '@company-name/shared/data-access-model';
 
 @Component({
     selector: 'openforge-shop',
@@ -6,13 +9,26 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./shop.component.scss'],
 })
 export class ShopPageComponent implements OnInit {
-    constructor() {}
+    constructor(private router: Router) {}
 
     ngOnInit(): void {
         console.log('ShopPageComponent ngOnInit');
     }
 
-    purchaseSturdySword() {
-        console.log('tbd...');
+    /**
+     * * Purchase Sturdy Sword
+     */
+    public async purchaseSturdySword() {
+        console.log('shop.component.ts', 'Purchasing Sturdy Sword...');
+        await this.router.navigate(['/home']); // * Travel home first so that Phaser exists
+        PhaserSingletonService.shopObservable.next(SwordTypeEnum.STURDY);
+    }
+
+    /**
+     * * Purchase Cheap Sword
+     */
+    public purchaseCheapSword() {
+        console.log('shop.component.ts', 'Purchasing Cheap Sword...');
+        PhaserSingletonService.shopObservable.next(SwordTypeEnum.CHEAP);
     }
 }

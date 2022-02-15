@@ -35,6 +35,7 @@ export class ForgeScene extends Phaser.Scene {
      */
     preloadBlacksmithCharacter() {
         this.load.atlas(Blacksmith.blacksmithIdleKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
+        this.load.atlas(Blacksmith.blacksmithHammeringKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
         this.load.animation(this.backgroundKey, Blacksmith.blacksmithAnimation);
     }
 
@@ -55,6 +56,7 @@ export class ForgeScene extends Phaser.Scene {
         // * Now handle scrolling
         this.cameras.main.setBackgroundColor('0xEBF0F3');
 
+        // * Register our custom scroll manager
         this.scrollManager = new ScrollManager(this);
         this.scrollManager.registerScrollingBackground(this.backgroundImage);
         // * Set cameras to the correct position
@@ -65,27 +67,12 @@ export class ForgeScene extends Phaser.Scene {
     }
 
     /**
+     * * When the screen is resized, we
      *
      * @param gameSize
-     * @param baseSize
-     * @param displaySize
-     * @param resolution
      */
-    resize(gameSize: Phaser.Structs.Size, baseSize: Phaser.Structs.Size) {
-        console.log('resizing....');
-        let tmpWidth = gameSize.width;
-        let tmpHeight = gameSize.height;
-        if (tmpWidth === 0 || tmpHeight === 0) {
-            console.log('First load, so set based on config');
-            tmpWidth = this.game.config.width as number;
-            tmpHeight = this.game.config.height as number;
-        } else {
-            console.log('gameSize.width:', gameSize.width, 'gameSize.height', gameSize.height);
-            console.log('baseSize.width:', baseSize.width, 'baseSize.height', baseSize.height);
-        }
-
-        console.log('this.backgroundImage.width = ', this.backgroundImage.width, this.backgroundImage.height);
-
+    resize(gameSize: Phaser.Structs.Size) {
+        console.log('Resizing', gameSize.width, gameSize.height);
         this.cameras.resize(gameSize.width, gameSize.height);
     }
 }
