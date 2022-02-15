@@ -19,20 +19,16 @@ export class ShopPageComponent implements OnInit {
     }
 
     /**
-     * * Purchase FANCY Sword
+     * * Purchase Sword
      */
-    public async purchaseFANCYSword() {
-        console.log('shop.component.ts', 'Purchasing FANCY Sword...');
+    public async purchaseSword(type: string) {
+        const swordType = type === 'fancy' ? SwordTypeEnum.FANCY : SwordTypeEnum.CHEAP;
+        console.log('shop.component.ts', `Purchasing ${swordType} Sword...`);
         await this.router.navigate(['/home']); // * Travel home first so that Phaser exists
-        PhaserSingletonService.shopObservable.next(SwordTypeEnum.FANCY);
-    }
-
-    /**
-     * * Purchase Cheap Sword
-     */
-    public purchaseCheapSword() {
-        console.log('shop.component.ts', 'Purchasing Cheap Sword...');
-        PhaserSingletonService.shopObservable.next(SwordTypeEnum.CHEAP);
+        PhaserSingletonService.shopObservable.next(swordType);
+        if (this.isModal) {
+            this.closeModal();
+        }
     }
 
     /**
