@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import { SwordTypeEnum } from '@company-name/shared/data-access-model';
+import { ModalController } from '@ionic/angular';
 
 @Component({
     selector: 'openforge-shop',
@@ -9,7 +10,7 @@ import { SwordTypeEnum } from '@company-name/shared/data-access-model';
     styleUrls: ['./shop.component.scss'],
 })
 export class ShopPageComponent implements OnInit {
-    constructor(private router: Router) {}
+    constructor(private router: Router, private modalController: ModalController) {}
 
     ngOnInit(): void {
         console.log('ShopPageComponent ngOnInit');
@@ -30,5 +31,12 @@ export class ShopPageComponent implements OnInit {
     public purchaseCheapSword() {
         console.log('shop.component.ts', 'Purchasing Cheap Sword...');
         PhaserSingletonService.shopObservable.next(SwordTypeEnum.CHEAP);
+    }
+
+    /**
+     * * Function to close modal
+     */
+    public closeModal() {
+        void this.modalController.dismiss();
     }
 }
