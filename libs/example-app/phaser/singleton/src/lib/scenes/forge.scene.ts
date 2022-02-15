@@ -1,15 +1,18 @@
 /* eslint-disable no-magic-numbers */
-import { Blacksmith } from '@company-name/shared/data-access-model';
+import { Blacksmith, Sword } from '@company-name/shared/data-access-model';
+import { CheapSword } from 'libs/shared/data-access-model/src/lib/sword/cheap_sword.class';
+import { FancySword } from 'libs/shared/data-access-model/src/lib/sword/fancy_sword.class';
 import * as Phaser from 'phaser';
 
 import { ScrollManager } from '../utilities/scroll-manager';
 
 export class ForgeScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
-    private backgroundImageAsset = 'assets/blacksmith_bg.png';
-    private blackSmith: Blacksmith;
-    private scrollManager: ScrollManager;
-    private backgroundImage: Phaser.GameObjects.Image;
+    private backgroundImageAsset = 'assets/blacksmith_bg.png'; // * Asset url relative to the app itself
+    private backgroundImage: Phaser.GameObjects.Image; // * Reference for the background image
+    private blackSmith: Blacksmith; // * We only have a single blacksmith in this game
+    private scrollManager: ScrollManager; // * Custom openforge utility for handling scroll
+    public constructedSwords: Sword[] = [];
 
     constructor() {
         super({ key: 'preloader' });
@@ -23,6 +26,9 @@ export class ForgeScene extends Phaser.Scene {
 
             // * Now load the background image
             this.load.image(this.backgroundKey, this.backgroundImageAsset);
+            // * Now preload the sword images, even though we don't use it initially
+            this.load.image(FancySword.fancySwordKey, FancySword.fancySwordImageAsset);
+            this.load.image(CheapSword.cheapSwordKey, CheapSword.cheapSwordImageAsset);
             // * Load the blacksmith sprites
             await this.preloadBlacksmithCharacter();
         } catch (e) {

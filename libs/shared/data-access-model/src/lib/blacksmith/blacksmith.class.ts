@@ -4,7 +4,8 @@ import * as Phaser from 'phaser';
 
 import { SwordTypeEnum } from '../enums/sword.enum';
 import { Human } from '../human/human.class';
-import { Sword } from '../sword/sword.class';
+import { CheapSword } from '../sword/cheap_sword.class';
+import { FancySword } from '../sword/fancy_sword.class';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     public static blacksmithHammeringKey = 'blacksmith_hammer';
@@ -22,7 +23,8 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
 
         // When business plan is finished, Hire the Founder and delete the preview
         PhaserSingletonService.shopObservable.subscribe(_objectToBuild => {
-            console.log('Blacksmith shopObservable triggered');
+            console.log('Blacksmith received order for:', _objectToBuild);
+            PhaserSingletonService.actionsHistory.push('Blacksmith received order for:', _objectToBuild);
             void this.buildSword(_objectToBuild);
         });
     }
@@ -56,17 +58,26 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
      * * Sets the blacksmith's animation to Hammering
      */
     public async buildSword(_type: SwordTypeEnum) {
-        console.log('buildSword()', _type);
+        console.log('blacksmith.class.ts', 'buildSword()', _type);
 
         // * Start the animation
-        PhaserSingletonService.actionsHistory.push('Blacksmith Received order for:' + _type);
+        PhaserSingletonService.actionsHistory.push('Blacksmith received order for a ' + _type + ' sword');
         this.play(Blacksmith.blacksmithHammeringKey);
-        PhaserSingletonService.actionsHistory.push('Blacksmith started working on ' + _type);
+        PhaserSingletonService.actionsHistory.push('Blacksmith started working on the ' + _type + ' sword');
 
         // * Start building the sword
-        const tmpSword = await Sword.build(_type);
-        if (tmpSword) {
-            PhaserSingletonService.actionsHistory.push(tmpSword.type + 'Sword Completed! ');
+        let tmpSword;
+        if (_type === SwordTypeEnum.FANCY) {
+            tmpSword = await FancySword.build(PhaserSingletonService.activeGame.scene.scenes[0]);
+        } else if (_type === SwordTypeEnum.CHEAP) {
+            tmpSword = await CheapSword.build(PhaserSingletonService.activeGame.scene.scenes[0]);
         }
+
+        if (tmpSword) {
+            PhaserSingletonService.actionsHistory.push(tmpSword.type, ' sword completed! ');
+        }
+
+        // * Now let's play the animation associated with
+        this.play(Blacksmith.blacksmithIdleKey);
     }
 }

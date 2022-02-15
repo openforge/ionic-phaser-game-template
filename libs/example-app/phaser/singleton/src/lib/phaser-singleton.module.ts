@@ -17,7 +17,7 @@ import { ForgeScene } from './scenes/forge.scene';
 })
 export class PhaserSingletonService {
     // * We need the Phaser.Game to live inside our own class because extending Phaser.Game would require a super call
-    private static activeGame: Phaser.Game;
+    public static activeGame: Phaser.Game;
     private static ngZone: NgZone;
     public static actionsHistory: string[] = []; // * Since phaser is a singleton, let's store the history of actions here for all components.
     public static shopObservable: Subject<SwordTypeEnum> = new Subject<SwordTypeEnum>();
