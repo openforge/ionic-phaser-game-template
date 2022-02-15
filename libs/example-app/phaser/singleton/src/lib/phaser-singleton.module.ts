@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, NgZone, Optional, SkipSelf } from '@angular/core';
+import { SwordTypeEnum } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
+import { Subject } from 'rxjs';
 
 import { ForgeScene } from './scenes/forge.scene';
 
@@ -17,12 +19,15 @@ export class PhaserSingletonService {
     // * We need the Phaser.Game to live inside our own class because extending Phaser.Game would require a super call
     private static activeGame: Phaser.Game;
     private static ngZone: NgZone;
+    public static actionsHistory: string[] = []; // * Since phaser is a singleton, let's store the history of actions here for all components.
+    public static shopObservable: Subject<SwordTypeEnum> = new Subject<SwordTypeEnum>();
 
     constructor(private _ngZone: NgZone, @Optional() @SkipSelf() parentModule?: PhaserSingletonService) {
         if (parentModule) {
             console.error('Phaser Singleton is already loaded. Import it in the AppModule only');
         } else {
             PhaserSingletonService.ngZone = this._ngZone;
+            PhaserSingletonService.actionsHistory.push('Initializing Phaser...');
         }
     }
 
@@ -91,5 +96,14 @@ export class PhaserSingletonService {
                 });
             }
         });
+    }
+
+    /**
+     * * gets the actionsHistory
+     *
+     * @returns string[]
+     */
+    public static getActionsHistory() {
+        return PhaserSingletonService.actionsHistory;
     }
 }

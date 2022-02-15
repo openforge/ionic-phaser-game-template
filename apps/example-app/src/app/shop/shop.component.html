@@ -3,9 +3,43 @@
         <ion-buttons slot="start">
             <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
+        <ion-buttons slot="end" *ngIf="isModal">
+            <ion-button (click)="closeModal()">
+                <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
         <ion-title>Shop</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <p>shop works!</p>
+
+    <div class="inventory-list">
+        <!-- CHEAP SWORD-->
+        <ion-card>
+            <img src="/assets/cheap_sword.png">
+            <ion-card-header>
+                <ion-card-title>Cheap Sword</ion-card-title>
+                <ion-card-subtitle>10 seconds build time</ion-card-subtitle>
+            </ion-card-header>
+            
+            <ion-card-content>
+                This sword won't take the blacksmith very long to create, but it looks a little flimsy.
+            </ion-card-content>
+            <ion-button expand="full" color="secondary" (click)="purchaseCheapSword()">Purchase</ion-button>
+        </ion-card>
+
+        <!-- CHEAP SWORD-->
+        <ion-card>
+            <img src="/assets/fancy_sword.png">
+            <ion-card-header>
+                <ion-card-title>Fancy Sword</ion-card-title>
+                <ion-card-subtitle>20 seconds build time</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                A truly mysterious marvel!  The craftmanship on this sword is amazing, and it has such a sharp looking blade...
+            </ion-card-content>
+            <ion-button expand="full" color="secondary" (click)="purchaseSturdySword()">Purchase</ion-button>
+        </ion-card>
+    </div>
+    
 </ion-content>

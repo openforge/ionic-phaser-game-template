@@ -1,7 +1,10 @@
 /* eslint-disable no-magic-numbers */
+import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import * as Phaser from 'phaser';
 
+import { SwordTypeEnum } from '../enums/sword.enum';
 import { Human } from '../human/human.class';
+import { Sword } from '../sword/sword.class';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     public static blacksmithHammeringKey = 'blacksmith_hammer';
@@ -16,6 +19,12 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
         this.scene.add.existing(this);
         this.setVisible(true);
         this.play(Blacksmith.blacksmithIdleKey);
+
+        // When business plan is finished, Hire the Founder and delete the preview
+        PhaserSingletonService.shopObservable.subscribe(_objectToBuild => {
+            console.log('Blacksmith shopObservable triggered');
+            void this.buildSword(_objectToBuild);
+        });
     }
 
     /**
@@ -35,13 +44,29 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
         }
     }
 
+    /**
+     * * Sets the blacksmith's animation to Idle
+     */
     public setIdle() {
         console.log('Blacksmith going to idle!');
         this.play(Blacksmith.blacksmithIdleKey);
     }
 
-    public setHammering() {
-        console.log('Blacksmith going to work!');
+    /**
+     * * Sets the blacksmith's animation to Hammering
+     */
+    public async buildSword(_type: SwordTypeEnum) {
+        console.log('buildSword()', _type);
+
+        // * Start the animation
+        PhaserSingletonService.actionsHistory.push('Blacksmith Received order for:' + _type);
         this.play(Blacksmith.blacksmithHammeringKey);
+        PhaserSingletonService.actionsHistory.push('Blacksmith started working on ' + _type);
+
+        // * Start building the sword
+        const tmpSword = await Sword.build(_type);
+        if (tmpSword) {
+            PhaserSingletonService.actionsHistory.push(tmpSword.type + 'Sword Completed! ');
+        }
     }
 }
