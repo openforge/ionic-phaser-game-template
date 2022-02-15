@@ -7,7 +7,7 @@ export class FancySword extends Phaser.GameObjects.Image implements Sword {
     public static fancySwordKey = 'fancy-sword'; // * Key for the fancy sword, used by phaser if it's an animation
 
     constructor(phaserScene: Phaser.Scene) {
-        super(phaserScene, 0.8, 1, FancySword.fancySwordKey);
+        super(phaserScene, 1300, -150, FancySword.fancySwordKey); // * + X is to the right, - Y is up
         console.log('fancy_sword.class', 'constructor()');
         this.swordType = SwordTypeEnum.FANCY; // * inherited from Sword
     }
@@ -24,9 +24,9 @@ export class FancySword extends Phaser.GameObjects.Image implements Sword {
         try {
             console.log('fancy_sword.class', 'Starting to build...');
             // eslint-disable-next-line no-magic-numbers
-            await new Promise(resolve => setTimeout(resolve, 10000));
+            await new Promise(resolve => setTimeout(resolve, 8000));
             phaserScene.add.existing(tmpObject);
-            tmpObject.setScale(3);
+            tmpObject.setScale(1);
             tmpObject.setVisible(true);
             console.log('fancy_sword.class', 'Finished building!...');
             return tmpObject;

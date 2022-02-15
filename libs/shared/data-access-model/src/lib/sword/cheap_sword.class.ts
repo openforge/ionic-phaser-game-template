@@ -8,7 +8,7 @@ export class CheapSword extends Phaser.GameObjects.Image implements Sword {
     public swordType: SwordTypeEnum; // * Interface from parent Sword
 
     constructor(phaserScene: Phaser.Scene) {
-        super(phaserScene, 0.8, 0.8, CheapSword.cheapSwordKey);
+        super(phaserScene, -550, -450, CheapSword.cheapSwordKey);
         console.log('cheap_sword.class', 'constructor()');
         this.swordType = SwordTypeEnum.CHEAP; // * inherited from Sword
     }
@@ -26,7 +26,7 @@ export class CheapSword extends Phaser.GameObjects.Image implements Sword {
             // eslint-disable-next-line no-magic-numbers
             await new Promise(resolve => setTimeout(resolve, 3000));
             phaserScene.add.existing(tmpObject);
-            tmpObject.setScale(3);
+            tmpObject.setScale(1);
             tmpObject.setVisible(true);
             console.log('cheap_sword.class', 'Finished building!...');
             return tmpObject;
