@@ -10,10 +10,12 @@ import { ModalController } from '@ionic/angular';
     styleUrls: ['./shop.component.scss'],
 })
 export class ShopPageComponent implements OnInit {
+    public isModal: boolean = false; // * Property to catch if component is on the modal or not
     constructor(private router: Router, private modalController: ModalController) {}
 
     ngOnInit(): void {
         console.log('ShopPageComponent ngOnInit');
+        this.checkIfModal();
     }
 
     /**
@@ -31,6 +33,17 @@ export class ShopPageComponent implements OnInit {
     public purchaseCheapSword() {
         console.log('shop.component.ts', 'Purchasing Cheap Sword...');
         PhaserSingletonService.shopObservable.next(SwordTypeEnum.CHEAP);
+    }
+
+    /**
+     * * Check if component was opened on a modal
+     */
+    public checkIfModal() {
+        void this.modalController.getTop().then(res => {
+            if (res) {
+                this.isModal = true;
+            }
+        });
     }
 
     /**

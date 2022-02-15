@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
-        <ion-buttons slot="end">
+        <ion-buttons slot="end" *ngIf="isModal">
             <ion-button (click)="closeModal()">
                 <ion-icon name="close-outline"></ion-icon>
             </ion-button>
