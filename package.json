@@ -71,6 +71,7 @@
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
+    "license-checker": "^25.0.1",
     "lint-staged": "^12.1.1",
     "nx": "^13.7.3",
     "phaser": "^3.55.2",

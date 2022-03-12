@@ -20,6 +20,10 @@ That's it for the renaming!  Now to test...
 
 You should now load your example app!
 
+# Checking Licenses
+
+To run the license checker, use 
+`npx license-checker --summary` or vanilla `npx license-checker`
 # Important - Utilizing this Repo
 
 Most of the commands to generate projects/capabilities/apps are default to NX, Ionic, or Angular (in that order), so we will NOT include their specific instructions since as the packages update so will the documentation.  
