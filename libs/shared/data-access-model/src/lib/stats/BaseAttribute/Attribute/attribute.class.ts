@@ -4,14 +4,14 @@
  * * Since it is a subclass of baseAttribute, _baseValue is it's starting value
  */
 
-import { BaseAttribute } from './base-attribute.class';
-import { FinalBonus } from './final-bonus.class';
-import { RawBonus } from './raw-bonus.class';
+import { BaseAttribute } from '../base-attribute.class';
+import { FinalBonus } from '../FinalBonus/final-bonus.class';
+import { RawBonus } from '../RawBonus/raw-bonus.class';
 
 export class Attribute extends BaseAttribute {
     private _rawBonuses: RawBonus[] = [];
     private _finalBonuses: FinalBonus[] = [];
-    private _finalValue: number;
+    protected _finalValue: number; // * This is *protected* so we can change it in the subclass.
 
     constructor(value: number) {
         super(value);
@@ -46,31 +46,35 @@ export class Attribute extends BaseAttribute {
      *
      * @returns finalValue
      */
-    private calculateValue(): number {
+    protected calculateValue(): number {
         this._finalValue = this.baseValue; // * Resets each time this is called
+        this.applyRawBonuses();
+        this.applyFinalBonuses();
+        return this._finalValue;
+    }
 
+    protected applyRawBonuses() {
         // * The following code adds the RAWBONUS values
         let rawBonusValue = 0;
         let rawBonusMultiplier = 0;
         for (const _tmp of this._rawBonuses) {
             rawBonusValue += _tmp.baseValue;
-            rawBonusMultiplier += _tmp.baseMultiplier;
+            rawBonusMultiplier *= _tmp.baseMultiplier;
         }
         this._finalValue += rawBonusValue;
         this._finalValue *= rawBonusMultiplier;
+    }
 
-        // * Next, we add the FinalBonus Values
+    protected applyFinalBonuses() {
         let finalBonusValue = 0;
         let finalBonusMultiplier = 0;
         for (const _tmp of this._rawBonuses) {
             finalBonusValue += _tmp.baseValue;
-            finalBonusMultiplier += _tmp.baseMultiplier;
+            finalBonusMultiplier *= _tmp.baseMultiplier;
         }
 
         this._finalValue += finalBonusValue;
         this._finalValue *= 1 + finalBonusMultiplier;
-
-        return this._finalValue;
     }
 
     /**
