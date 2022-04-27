@@ -9,9 +9,10 @@ export class BaseAttribute {
     private _baseValue: number;
     private _baseMultiplier: number;
 
-    constructor(_value, _multiplier) {
+    constructor(_value, _multiplier?) {
+        console.log('BaseAttribute', 'value =', _value, 'multiplier = ', _multiplier);
         this._baseValue = _value;
-        this._baseMultiplier = _multiplier;
+        this._baseMultiplier = _multiplier || 0;
     }
 
     public get baseValue() {

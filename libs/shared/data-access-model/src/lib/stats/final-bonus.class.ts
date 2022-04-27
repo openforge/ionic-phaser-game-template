@@ -1,5 +1,5 @@
 /**
- * * RawBonus is...
+ * * FinalBonus is added to the Attribute AFTER everything else has been calculated
  */
 
 import { BaseAttribute } from './base-attribute.class';
