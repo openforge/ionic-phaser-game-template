@@ -10,20 +10,35 @@ export class DependentAttribute extends Attribute {
         super(startingValue);
     }
 
+    /**
+     * * Adds the attribute to the _otherAttributes array
+     *
+     * @param attr Attribute
+     */
     public addAttribute(attr: Attribute) {
         this._otherAttributes.push(attr);
     }
 
+    /**
+     * * Removes the attribute from the _otherAttributes array
+     *
+     * @param attr Attribute
+     */
     public removeAttribute(attr: Attribute) {
         this._otherAttributes.forEach((item, index) => {
             if (item === attr) this._otherAttributes.splice(index, 1);
         });
     }
 
-    protected override calculateValue(): number {
-        this._finalValue = this.baseValue;
-        this.applyRawBonuses();
-        this.applyFinalBonuses();
-        return this._finalValue;
-    }
+    /**
+     * TODO - Do we need to provide calculateValue() here?  It's already inherited from attribute.class.ts
+     *
+     * @returns finalValue
+     */
+    // protected override calculateValue(): number {
+    //     this._finalValue = this.baseValue;
+    //     this.applyRawBonuses();
+    //     this.applyFinalBonuses();
+    //     return this._finalValue;
+    // }
 }
