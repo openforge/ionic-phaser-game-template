@@ -1,9 +1,8 @@
-/**
- * * DependentAttribute
- */
-
 import { Attribute } from '../attribute.class';
-
+/**
+ * * DependentAttribute's are stats that depend on others.  In an RPG game for instance, your "Attack Speed" is based
+ * * on not only the weapon you use, but also your dexterity as well.
+ */
 export class DependentAttribute extends Attribute {
     protected _otherAttributes: Attribute[] = []; // * List of other (unknown) attributes.  Calculated from classes that extend DependentAttribute
     constructor(startingValue: number) {
