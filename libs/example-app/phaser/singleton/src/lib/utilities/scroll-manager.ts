@@ -73,6 +73,7 @@ export class ScrollManager {
      * @param object BackgroundImage
      */
     public unregisterScrollingBackground(object: BackgroundImage) {
+        console.log('unregisterScrollingBackground()');
         if (!(object.input && object.input.enabled)) {
             object.disableInteractive();
         }
@@ -100,6 +101,7 @@ export class ScrollManager {
      * * Create call is necessary - here we handle the scroll coordinate logic
      */
     private create() {
+        console.log('create()');
         // * Set drag distance to a reasonable amount to avoid accidental drag
         this.scene.input.dragDistanceThreshold = 16;
 
@@ -140,6 +142,7 @@ export class ScrollManager {
      * @param object any Phaser.GameObjects.GameObject
      */
     private applyScrollingHandlers(object: Phaser.GameObjects.GameObject) {
+        console.log('applyScrollingHandlers()');
         if (!(object.input && object.input.enabled)) {
             object.setInteractive();
         }

@@ -4,7 +4,7 @@ import * as Phaser from 'phaser';
 
 import { ScrollManager } from '../utilities/scroll-manager';
 
-export class ForgeScene extends Phaser.Scene {
+export class WorldScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
     private backgroundImageAsset = 'assets/blacksmith_bg.png'; // * Asset url relative to the app itself
     private backgroundImage: Phaser.GameObjects.Image; // * Reference for the background image
@@ -18,15 +18,15 @@ export class ForgeScene extends Phaser.Scene {
 
     async preload() {
         try {
-            console.log('forge.scene.ts', 'Preloading Assets...');
+            console.log('world.scene.ts', 'Preloading Assets...');
             // * First, set the base URL since we're just loading from the main application's asset folder
             this.load.setBaseURL('http://localhost:4200/');
 
             // * Now load the background image
             this.load.image(this.backgroundKey, this.backgroundImageAsset);
             // * Now preload the sword images, even though we don't use it initially
-            this.load.image(FancySword.fancySwordKey, FancySword.fancySwordImageAsset);
-            this.load.image(CheapSword.cheapSwordKey, CheapSword.cheapSwordImageAsset);
+            this.load.image(FancySword.key, FancySword.imageAsset);
+            this.load.image(CheapSword.key, CheapSword.imageAsset);
             // * Load the blacksmith sprites
             await this.preloadBlacksmithCharacter();
         } catch (e) {
@@ -38,9 +38,9 @@ export class ForgeScene extends Phaser.Scene {
      * * Load the blacksmith sprites
      */
     preloadBlacksmithCharacter() {
-        this.load.atlas(Blacksmith.blacksmithIdleKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
-        this.load.atlas(Blacksmith.blacksmithHammeringKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
-        this.load.animation(this.backgroundKey, Blacksmith.blacksmithAnimation);
+        this.load.atlas(Blacksmith.idleKey, Blacksmith.spriteSheet, Blacksmith.atlast);
+        this.load.atlas(Blacksmith.hammeringKey, Blacksmith.spriteSheet, Blacksmith.atlast);
+        this.load.animation(this.backgroundKey, Blacksmith.animation);
     }
 
     /**

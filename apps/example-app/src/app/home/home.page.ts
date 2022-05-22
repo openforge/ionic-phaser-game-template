@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// TODO - Resolve import/no-resolved for singleton instance
-// eslint-disable-next-line import/no-unresolved
-import { PhaserSingletonService } from 'libs/example-app/phaser/singleton/src/lib/phaser-singleton.module';
+import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 
 @Component({
     selector: 'openforge-home',
@@ -18,6 +16,7 @@ export class HomePageComponent implements OnInit {
      * With the delay the canvas size will be set correctly.
      */
     async ngOnInit() {
+        console.log('HomePageComponent', 'ngOnInit');
         setTimeout(this.init, 500);
     }
 

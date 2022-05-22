@@ -4,7 +4,7 @@ import { SwordTypeEnum } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
 import { Subject } from 'rxjs';
 
-import { ForgeScene } from './scenes/forge.scene';
+import { WorldScene } from './scenes/world.scene';
 
 /**
  * * The PhaserInstance is a singleton that controls the Game Scene, which is the UI portion of the Game Engine
@@ -82,7 +82,7 @@ export class PhaserSingletonService {
                         height: window.innerHeight,
                     },
                     parent: 'forge-main',
-                    scene: [ForgeScene],
+                    scene: [WorldScene],
                     plugins: {
                         global: [],
                         scene: [],

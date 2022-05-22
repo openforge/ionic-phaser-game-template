@@ -2,11 +2,11 @@
 import { Sword, SwordTypeEnum } from '@company-name/shared/data-access-model';
 
 export class FancySword extends Phaser.GameObjects.Image implements Sword {
-    public static fancySwordImageAsset = 'assets/fancy_sword_adapted.png'; // * The asset for the sword, relative to URL
-    public static fancySwordKey = 'fancy-sword'; // * Key for the fancy sword, used by phaser if it's an animation
+    public static imageAsset = 'assets/fancy_sword_adapted.png'; // * The asset for the sword, relative to URL
+    public static key = 'fancy-sword'; // * Key for the fancy sword, used by phaser if it's an animation
 
     constructor(phaserScene: Phaser.Scene) {
-        super(phaserScene, 1300, -150, FancySword.fancySwordKey); // * + X is to the right, - Y is up
+        super(phaserScene, 1300, -150, FancySword.key); // * + X is to the right, - Y is up
         console.log('fancy_sword.class', 'constructor()');
         this.swordType = SwordTypeEnum.FANCY; // * inherited from Sword
     }
