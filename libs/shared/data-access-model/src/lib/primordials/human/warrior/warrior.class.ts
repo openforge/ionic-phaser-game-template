@@ -5,24 +5,24 @@ import * as Phaser from 'phaser';
 
 import { Human } from '../human.primordial.class';
 
-export class Ninja extends Phaser.GameObjects.Sprite implements Human {
-    public static hammeringKey = 'ninja_hammer';
-    public static idleKey = 'ninja_idle';
-    public static spriteSheet = 'assets/ninja_sprites.png';
-    public static atlast = 'assets/ninja_sprites_atlas.json';
-    public static animation = 'assets/ninja_sprites_anim.json';
+export class Warrior extends Phaser.GameObjects.Sprite implements Human {
+    public static hammeringKey = 'warrior_hammer';
+    public static idleKey = 'warrior_idle';
+    public static spriteSheet = 'assets/warrior_sprites.png';
+    public static atlast = 'assets/warrior_sprites_atlas.json';
+    public static animation = 'assets/warrior_sprites_anim.json';
 
     constructor(phaserScene: Phaser.Scene) {
-        // * Set the ninja's position relative to Phaser's Origin
-        super(phaserScene, 0.6, 1, Ninja.hammeringKey);
+        // * Set the warrior's position relative to Phaser's Origin
+        super(phaserScene, 0.6, 1, Warrior.hammeringKey);
         this.scene.add.existing(this);
         this.setVisible(true);
-        this.play(Ninja.idleKey);
+        this.play(Warrior.idleKey);
 
         // When business plan is finished, Hire the Founder and delete the preview
         PhaserSingletonService.shopObservable.subscribe(_objectToBuild => {
-            console.log('Ninja received order for:', _objectToBuild);
-            PhaserSingletonService.actionsHistory.push('Ninja received order for:', _objectToBuild);
+            console.log('Warrior received order for:', _objectToBuild);
+            PhaserSingletonService.actionsHistory.push('Warrior received order for:', _objectToBuild);
             void this.buildSword(_objectToBuild);
         });
     }
@@ -31,36 +31,36 @@ export class Ninja extends Phaser.GameObjects.Sprite implements Human {
      * * Builds respective class asynchronously
      *
      * @param phaserScene
-     * @returns Promise<Ninja>
+     * @returns Promise<Warrior>
      */
-    public static async build(phaserScene: Phaser.Scene): Promise<Ninja> {
-        console.log('Data access model', 'ninja.class', 'constructor()');
-        const tempObject = new Ninja(phaserScene);
+    public static async build(phaserScene: Phaser.Scene): Promise<Warrior> {
+        console.log('Data access model', 'warrior.class', 'constructor()');
+        const tempObject = new Warrior(phaserScene);
         try {
             return tempObject;
         } catch (e) {
-            console.error('Error creating ninja');
+            console.error('Error creating warrior');
         }
     }
 
     /**
-     * * Sets the ninja's animation to Idle
+     * * Sets the warrior's animation to Idle
      */
     public setIdle() {
-        console.log('Ninja going to idle!');
-        this.play(Ninja.idleKey);
+        console.log('Warrior going to idle!');
+        this.play(Warrior.idleKey);
     }
 
     /**
-     * * Sets the ninja's animation to Hammering
+     * * Sets the warrior's animation to Hammering
      */
     public async buildSword(_type: SwordTypeEnum) {
-        console.log('ninja.class.ts', 'buildSword()', _type);
+        console.log('warrior.class.ts', 'buildSword()', _type);
 
         // * Start the animation
-        PhaserSingletonService.actionsHistory.push('Ninja received order for a ' + _type + ' sword');
-        this.play(Ninja.hammeringKey);
-        PhaserSingletonService.actionsHistory.push('Ninja started working on the ' + _type + ' sword');
+        PhaserSingletonService.actionsHistory.push('Warrior received order for a ' + _type + ' sword');
+        this.play(Warrior.hammeringKey);
+        PhaserSingletonService.actionsHistory.push('Warrior started working on the ' + _type + ' sword');
 
         // * Start building the sword
         let tmpSword;
@@ -75,6 +75,6 @@ export class Ninja extends Phaser.GameObjects.Sprite implements Human {
         }
 
         // * Now let's play the animation associated with
-        this.play(Ninja.idleKey);
+        this.play(Warrior.idleKey);
     }
 }
