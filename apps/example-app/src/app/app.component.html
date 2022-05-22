@@ -10,40 +10,23 @@
             <!-- There should only ever be one ion-content in a single view -->
             <ion-content>
                 <ion-item-divider>
-                    <ion-label> Navigation </ion-label>
+                    <ion-label> NAVIGATION </ion-label>
                 </ion-item-divider>
-                <ion-list>
-                    <ion-item>
-                        <ion-button [routerLink]="['/home']">Go to Home Page</ion-button>
-                    </ion-item>
-                   
-                    <ion-item>
-                        <ion-button (click)="openShop()">Open Shop (Modal)</ion-button>
-                    </ion-item>
-                    <ion-item>
-                        <ion-button [routerLink]="['/shop']">Open Shop (Page)</ion-button>
-                    </ion-item>
-                </ion-list>
-
+                <ion-button [routerLink]="['/home']">Forge (Home)</ion-button>
+                <ion-button (click)="openShop()">Open Shop (Modal)</ion-button>
+                <ion-button [routerLink]="['/shop']">Open Shop (Page)</ion-button>
+              
                 <!-- OPERATIONS -->
                 <ion-item-divider>
                     <ion-label> OPERATIONS </ion-label>
                 </ion-item-divider>
-                 
-                <ion-list>
-                    <ion-item>
-                        <ion-button (click)="createWarrior()">Create Warrior</ion-button>
-                    </ion-item>
-                    <ion-item>
-                        <ion-button (click)="createRandomEvent()">Create Random Event</ion-button>
-                    </ion-item>
-                </ion-list>
+                <ion-button (click)="createWarrior()">Create Warrior</ion-button>
+                <ion-button (click)="createRandomEvent()">Create Random Event</ion-button>
 
                 <!-- WARRIORS -->
                 <ion-item-divider>
-                    <ion-label> Warriors </ion-label>
+                    <ion-label> WARRIORS </ion-label>
                 </ion-item-divider>
-                
                 <ion-list>
                     <ion-item>
                         <div *ngFor="let _warrior of warriors">
@@ -57,16 +40,20 @@
                                 </ion-card-content>
                             </ion-card>
                         </div>
+                        <div *ngIf="warriors.length <=0">
+                            <p><i>None created yet, click "Create Warrior"!</i></p>
+                        </div>
                     </ion-item>
                 </ion-list>
                
                 
-                <!-- SYSTEM LOG -->
+                <!-- SYSTEM MESSAGES -->
                 <ion-item-divider>
-                    <ion-label> System Log </ion-label>
+                    <ion-label> SYSTEM MESSAGES </ion-label>
                 </ion-item-divider>
                 <ion-list>
-                    <div *ngFor="let action of actionsHistoryRef">
+                    <!-- TODO - Hook up reverse pipe so we don't call function in template -->
+                    <div *ngFor="let action of actionsHistoryRef.reverse()">
                         <ion-item> <p><i>{{action}}</i></p> </ion-item>
                     </div>
                 </ion-list>

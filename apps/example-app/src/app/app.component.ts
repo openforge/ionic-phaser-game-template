@@ -50,7 +50,6 @@ export class AppComponent implements OnDestroy {
      */
     public async createRandomEvent() {
         // * This function creates an 'experience' event that modifies the Warrior
-
         const xpEvent = new RandomEvent();
         console.log('createRandomEvent()', 'value = ', xpEvent.value);
     }

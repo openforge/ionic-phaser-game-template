@@ -7,10 +7,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home/home.page';
+import { ReversePipe } from './pipes/reverse.pipe';
 import { ShopPageComponent } from './shop/shop.component';
 
 @NgModule({
-    declarations: [AppComponent, ShopPageComponent, HomePageComponent],
+    declarations: [AppComponent, ShopPageComponent, HomePageComponent, ReversePipe],
     entryComponents: [],
     imports: [BrowserModule, IonicModule.forRoot(), PhaserSingletonService.forRoot(), AppRoutingModule],
     providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
