@@ -1,4 +1,4 @@
-import { LevelDependentStat } from '../level/level.dependent.stat';
+import { LevelDependentStat } from '@company-name/shared/data-access-model';
 
 export class Salary extends LevelDependentStat {
     // eslint-disable-next-line no-magic-numbers

@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
-import { Warrior } from '@company-name/shared/data-access-model';
+import { RandomEvent, Warrior } from '@company-name/shared/data-access-model';
 import { ModalController } from '@ionic/angular';
 
 import { ShopPageComponent } from './shop/shop.component';
@@ -34,6 +34,25 @@ export class AppComponent implements OnDestroy {
         console.log('createWarrior()');
         const tmpWarrior = await Warrior.build(new Warrior());
         this.warriors.push(tmpWarrior);
+    }
+
+    /**
+     * * Creates a RandomEvent and applies it to the Warrior
+     *
+     * @param _warrior Warrior
+     */
+    public async doPushUps(_warrior: Warrior) {
+        await _warrior.doPushUps();
+    }
+
+    /**
+     * * Creates a RandomEvent and applies it to a random Warrior
+     */
+    public async createRandomEvent() {
+        // * This function creates an 'experience' event that modifies the Warrior
+
+        const xpEvent = new RandomEvent();
+        console.log('createRandomEvent()', 'value = ', xpEvent.value);
     }
 
     /**

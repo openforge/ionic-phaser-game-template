@@ -1,5 +1,4 @@
-import { Stat } from '../stat.class';
-import { Level } from './level.class';
+import { Level, Stat } from '@company-name/shared/data-access-model';
 
 /**
  * * LevelDependentStat's are stats that depend on the level

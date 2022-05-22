@@ -5,7 +5,7 @@ import { BaseStat } from './stat.base.class';
 /**
  * * Represents a generic Stat which is equivalent to a "Group" in the Composition Pattern.
  * * Can contain any bonus and has a method for calculating the final value of the stat.
- * Since it is a subclass of BaseStat, _baseValue is it's starting value
+ * * Since it is a subclass of BaseStat, _baseValue is it's starting value
  */
 export class Stat extends BaseStat {
     private _rawBonuses = new Set<RawBonus>();

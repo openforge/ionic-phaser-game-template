@@ -7,32 +7,69 @@
                     <ion-title>Ionic Menu</ion-title>
                 </ion-toolbar>
             </ion-header>
+            <!-- There should only ever be one ion-content in a single view -->
             <ion-content>
+                <ion-item-divider>
+                    <ion-label> Navigation </ion-label>
+                </ion-item-divider>
                 <ion-list>
-                    <ion-item><ion-button [routerLink]="['/home']">Go to Home Page</ion-button></ion-item>
                     <ion-item>
-                        <ion-button (click)="createWarrior()">Create Warrior</ion-button>
+                        <ion-button [routerLink]="['/home']">Go to Home Page</ion-button>
                     </ion-item>
-                    <ion-item><ion-button (click)="openShop()">Open Shop (Modal)</ion-button></ion-item>
+                   
+                    <ion-item>
+                        <ion-button (click)="openShop()">Open Shop (Modal)</ion-button>
+                    </ion-item>
                     <ion-item>
                         <ion-button [routerLink]="['/shop']">Open Shop (Page)</ion-button>
                     </ion-item>
                 </ion-list>
-                <div *ngFor="let action of actionsHistoryRef">
-                    <p> - {{action}}</p>
-                </div>
 
-                <div *ngFor="let _warrior of warriors">
-                    <ion-card>
-                        <ion-item>
-                            <ion-icon name="pin" slot="start"></ion-icon>
-                            <ion-label>{{_warrior.name}}</ion-label>
-                        </ion-item>
-                        <ion-card-content>
-                            
-                        </ion-card-content>
-                    </ion-card>
-                </div>
+                <!-- OPERATIONS -->
+                <ion-item-divider>
+                    <ion-label> OPERATIONS </ion-label>
+                </ion-item-divider>
+                 
+                <ion-list>
+                    <ion-item>
+                        <ion-button (click)="createWarrior()">Create Warrior</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-button (click)="createRandomEvent()">Create Random Event</ion-button>
+                    </ion-item>
+                </ion-list>
+
+                <!-- WARRIORS -->
+                <ion-item-divider>
+                    <ion-label> Warriors </ion-label>
+                </ion-item-divider>
+                
+                <ion-list>
+                    <ion-item>
+                        <div *ngFor="let _warrior of warriors">
+                            <ion-card>
+                                <ion-item>
+                                    <ion-icon name="person" slot="start"></ion-icon>
+                                    <ion-label>{{_warrior.name}}</ion-label>
+                                </ion-item>
+                                <ion-card-content>
+                                    <ion-button (click)="doPushUps(_warrior)"> Do Pushups</ion-button>
+                                </ion-card-content>
+                            </ion-card>
+                        </div>
+                    </ion-item>
+                </ion-list>
+               
+                
+                <!-- SYSTEM LOG -->
+                <ion-item-divider>
+                    <ion-label> System Log </ion-label>
+                </ion-item-divider>
+                <ion-list>
+                    <div *ngFor="let action of actionsHistoryRef">
+                        <ion-item> <p><i>{{action}}</i></p> </ion-item>
+                    </div>
+                </ion-list>
                
             </ion-content>
         </ion-menu>

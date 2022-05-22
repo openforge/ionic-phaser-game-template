@@ -1,4 +1,4 @@
-import { Stat } from '../stat.class';
+import { Stat } from '@company-name/shared/data-access-model';
 
 export class Level extends Stat {
     private static XP_PER_LEVEL = 5;
