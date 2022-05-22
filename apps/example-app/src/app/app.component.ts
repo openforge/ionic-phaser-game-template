@@ -46,12 +46,21 @@ export class AppComponent implements OnDestroy {
     }
 
     /**
-     * * Creates a Event and applies it to a random Warrior
+     * TODO - Create an Event that modifies XP, and apply it to a random Warrior
      */
-    public async createEvent() {
-        // * This function creates an 'experience' event that modifies the Warrior
+    public async createExpEvent() {
+        // * This function creates an event that modifies the Warrior's XP.
         const xpEvent = new Event();
         console.log('createEvent()', 'value = ', xpEvent.value);
+    }
+
+    /**
+     * TODO - Create an Event that modifies SALARY, and apply it to a random Warrior
+     */
+    public async createSalaryEvent() {
+        // * This function creates an event that modifies the Warrior's SALARY.
+        const salaryEvent = new Event();
+        console.log('createEvent()', 'value = ', salaryEvent.value);
     }
 
     /**
