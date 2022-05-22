@@ -25,6 +25,13 @@ export class AppComponent implements OnDestroy {
     }
 
     /**
+     * * Creates a warrior to be placed on scene
+     */
+    public async createWarrior() {
+        console.log('createWarrior()');
+    }
+
+    /**
      * * Need to handle the destroy method so we dont lock up our computer!
      */
     ngOnDestroy(): void {
