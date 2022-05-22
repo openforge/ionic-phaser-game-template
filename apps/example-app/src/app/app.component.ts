@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { RandomEvent, Warrior } from '@company-name/shared/data-access-model';
+import { Event, Warrior } from '@company-name/shared/data-access-model';
 import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import { ModalController } from '@ionic/angular';
 
@@ -37,7 +37,7 @@ export class AppComponent implements OnDestroy {
     }
 
     /**
-     * * Creates a RandomEvent and applies it to the Warrior
+     * * Creates a Event and applies it to the Warrior
      *
      * @param _warrior Warrior
      */
@@ -46,12 +46,12 @@ export class AppComponent implements OnDestroy {
     }
 
     /**
-     * * Creates a RandomEvent and applies it to a random Warrior
+     * * Creates a Event and applies it to a random Warrior
      */
-    public async createRandomEvent() {
+    public async createEvent() {
         // * This function creates an 'experience' event that modifies the Warrior
-        const xpEvent = new RandomEvent();
-        console.log('createRandomEvent()', 'value = ', xpEvent.value);
+        const xpEvent = new Event();
+        console.log('createEvent()', 'value = ', xpEvent.value);
     }
 
     /**
