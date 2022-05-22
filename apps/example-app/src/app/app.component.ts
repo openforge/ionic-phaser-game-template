@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import { RandomEvent, Warrior } from '@company-name/shared/data-access-model';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import { ModalController } from '@ionic/angular';
 
 import { ShopPageComponent } from './shop/shop.component';

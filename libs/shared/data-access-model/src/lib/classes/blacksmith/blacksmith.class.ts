@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import { CheapSword, FancySword, Human, SwordTypeEnum } from '@company-name/shared/data-access-model';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import * as Phaser from 'phaser';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {

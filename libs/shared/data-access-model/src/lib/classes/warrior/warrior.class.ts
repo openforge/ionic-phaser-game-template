@@ -1,5 +1,5 @@
 /* eslint-disable no-magic-numbers */
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 
 import { Human } from '../../primordials/human/human.primordial.class';
 import { WarriorStats } from './warrior.stats.class';

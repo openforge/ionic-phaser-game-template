@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 
 @Component({
     selector: 'openforge-home',

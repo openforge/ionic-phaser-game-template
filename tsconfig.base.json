@@ -16,8 +16,8 @@
         "baseUrl": ".",
         "paths": {
             "@company-name/example-app/ionic/ui-modals": ["libs/example-app/ionic/ui-modals/src/index.ts"],
-            "@company-name/example-app/phaser/singleton": ["libs/example-app/phaser/singleton/src/index.ts"],
             "@company-name/example-app/phaser/ui-modals": ["libs/example-app/phaser/ui-modals/src/index.ts"],
+            "@company-name/shared-phaser-singleton": ["libs/shared/phaser-singleton/src/index.ts"],
             "@company-name/shared/data-access-model": ["libs/shared/data-access-model/src/index.ts"]
         }
     },
