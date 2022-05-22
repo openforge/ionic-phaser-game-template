@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
+import { Event, Warrior } from '@company-name/shared/data-access-model';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import { ModalController } from '@ionic/angular';
 
 import { ShopPageComponent } from './shop/shop.component';
@@ -10,7 +11,9 @@ import { ShopPageComponent } from './shop/shop.component';
     styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-    public actionsHistoryRef: string[];
+    public actionsHistoryRef: string[]; // * Store all actions on home screen for printing
+    public warriors: Warrior[] = []; // * Array of Warriors since they don't currently have a graphic associated
+
     // * for our app template to use the actions History)
     constructor(public phaserInstance: PhaserSingletonService, public modalController: ModalController) {
         this.actionsHistoryRef = PhaserSingletonService.actionsHistory;
@@ -22,6 +25,33 @@ export class AppComponent implements OnDestroy {
             cssClass: 'fullscreen',
         });
         return await modal.present();
+    }
+
+    /**
+     * * Creates a warrior to be placed on scene
+     */
+    public async createWarrior() {
+        console.log('createWarrior()');
+        const tmpWarrior = await Warrior.build(new Warrior());
+        this.warriors.push(tmpWarrior);
+    }
+
+    /**
+     * * Creates a Event and applies it to the Warrior
+     *
+     * @param _warrior Warrior
+     */
+    public async doPushUps(_warrior: Warrior) {
+        await _warrior.doPushUps();
+    }
+
+    /**
+     * * Creates a Event and applies it to a random Warrior
+     */
+    public async createEvent() {
+        // * This function creates an 'experience' event that modifies the Warrior
+        const xpEvent = new Event();
+        console.log('createEvent()', 'value = ', xpEvent.value);
     }
 
     /**

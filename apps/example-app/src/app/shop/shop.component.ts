@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import { SwordTypeEnum } from '@company-name/shared/data-access-model';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import { ModalController } from '@ionic/angular';
 
 @Component({
