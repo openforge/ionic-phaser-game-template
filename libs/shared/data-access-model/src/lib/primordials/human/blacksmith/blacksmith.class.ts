@@ -34,7 +34,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
      * @returns Promise<Blacksmith>
      */
     public static async build(phaserScene: Phaser.Scene): Promise<Blacksmith> {
-        console.log('Data access model', 'blacksmith.class', 'constructor()');
+        console.log('blacksmith.class', 'constructor()');
         const tempObject = new Blacksmith(phaserScene);
         try {
             return tempObject;

@@ -21,6 +21,19 @@
                 <div *ngFor="let action of actionsHistoryRef">
                     <p> - {{action}}</p>
                 </div>
+
+                <div *ngFor="let _warrior of warriors">
+                    <ion-card>
+                        <ion-item>
+                            <ion-icon name="pin" slot="start"></ion-icon>
+                            <ion-label>{{_warrior.name}}</ion-label>
+                        </ion-item>
+                        <ion-card-content>
+                            
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+               
             </ion-content>
         </ion-menu>
         <!-- the main content -->
