@@ -1,5 +1,8 @@
+/**
+ * * Human class is primordial, which means multiple classes extend this.
+ */
 export class Human {
-    public name: string; // * Name that the blacksmith will receive
+    public name: string; // * All humans have a name
 
     constructor(data?: Human) {
         console.log('Data Access Model', 'human.class', 'constructor()', data);

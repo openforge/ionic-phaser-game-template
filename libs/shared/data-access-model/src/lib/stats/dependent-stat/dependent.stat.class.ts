@@ -1,4 +1,4 @@
-import { Stat } from './stat.class';
+import { Stat } from '../stat.class';
 
 /**
  * * DependentStat's are stats that depend on others.  In an RPG game for instance, your "Attack Speed" is based

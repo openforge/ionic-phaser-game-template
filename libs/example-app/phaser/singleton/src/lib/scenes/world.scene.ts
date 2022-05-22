@@ -6,7 +6,7 @@ import { ScrollManager } from '../utilities/scroll-manager';
 
 export class WorldScene extends Phaser.Scene {
     private backgroundKey = 'background-image'; // * Store the background image name
-    private backgroundImageAsset = 'assets/blacksmith_bg.png'; // * Asset url relative to the app itself
+    private backgroundImageAsset = 'assets/blacksmith/blacksmith_bg.png'; // * Asset url relative to the app itself
     private backgroundImage: Phaser.GameObjects.Image; // * Reference for the background image
     private blackSmith: Blacksmith; // * We only have a single blacksmith in this game
     private scrollManager: ScrollManager; // * Custom openforge utility for handling scroll

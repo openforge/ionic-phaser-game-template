@@ -1,18 +1,16 @@
 /* eslint-disable no-magic-numbers */
 import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
+import { CheapSword, FancySword, SwordTypeEnum } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
 
-import { Human } from '../../primordials/human/human.primordial.class';
-import { SwordTypeEnum } from '../../primordials/sword/sword.enum';
-import { CheapSword } from '../sword/cheap_sword.class';
-import { FancySword } from '../sword/fancy_sword.class';
+import { Human } from '../human.primordial.class';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     public static hammeringKey = 'blacksmith_hammer';
     public static idleKey = 'blacksmith_idle';
-    public static spriteSheet = 'assets/blacksmith_sprites.png';
-    public static atlast = 'assets/blacksmith_sprites_atlas.json';
-    public static animation = 'assets/blacksmith_sprites_anim.json';
+    public static spriteSheet = 'assets/blacksmith/blacksmith_sprites.png';
+    public static atlast = 'assets/blacksmith/blacksmith_sprites_atlas.json';
+    public static animation = 'assets/blacksmith/blacksmith_sprites_anim.json';
 
     constructor(phaserScene: Phaser.Scene) {
         // * Set the blacksmith's position relative to Phaser's Origin

@@ -1,12 +1,10 @@
-import { BaseStat } from './base.stat.class';
 import { FinalBonus } from './finalbonus/final-bonus.class';
 import { RawBonus } from './rawbonus/raw-bonus.class';
+import { BaseStat } from './stat.base.class';
 
 /**
- * * Represents a stat of an object in the instantiated game world
- *
- * Stat class is equivalent to a "Group" in the Composition Pattern.
- * It can hold any raw or final bonuses and has a method for calculating the final value of the stat.
+ * * Represents a generic Stat which is equivalent to a "Group" in the Composition Pattern.
+ * * Can contain any bonus and has a method for calculating the final value of the stat.
  * Since it is a subclass of BaseStat, _baseValue is it's starting value
  */
 export class Stat extends BaseStat {

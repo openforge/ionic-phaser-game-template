@@ -2,7 +2,7 @@
  * * RawBonus is added to the raw value of the Stat
  */
 
-import { BaseStat } from '../base.stat.class';
+import { BaseStat } from '../stat.base.class';
 
 export class RawBonus extends BaseStat {
     constructor(value, multiplier) {

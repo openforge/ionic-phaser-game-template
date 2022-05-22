@@ -2,7 +2,7 @@
 import { Sword, SwordTypeEnum } from '@company-name/shared/data-access-model';
 
 export class CheapSword extends Phaser.GameObjects.Image implements Sword {
-    public static imageAsset = 'assets/cheap_sword.png'; // * The asset for the sword, relative to URL
+    public static imageAsset = 'assets/swords/cheap_sword.png'; // * The asset for the sword, relative to URL
     public static key = 'cheap-sword'; // * Key for the cheap sword, used by phaser if it's an animation
     public swordType: SwordTypeEnum; // * Interface from parent Sword
 
