@@ -1,7 +1,11 @@
 /* eslint-disable no-magic-numbers */
 import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
-import { CheapSword, FancySword, Human, SwordTypeEnum } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
+
+import { Human } from '../../primordials/human/human.primordial.class';
+import { SwordTypeEnum } from '../../primordials/sword/sword.enum';
+import { CheapSword } from '../sword/cheap_sword.class';
+import { FancySword } from '../sword/fancy_sword.class';
 
 export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     public static blacksmithHammeringKey = 'blacksmith_hammer';
@@ -29,6 +33,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
      * * Builds respective class asynchronously
      *
      * @param phaserScene
+     * @param textureKey
      * @returns Promise<Blacksmith>
      */
     public static async build(phaserScene: Phaser.Scene): Promise<Blacksmith> {

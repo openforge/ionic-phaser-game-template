@@ -1,7 +1,5 @@
 /* eslint-disable no-magic-numbers */
-import { Blacksmith, Sword } from '@company-name/shared/data-access-model';
-import { CheapSword } from 'libs/shared/data-access-model/src/lib/sword/cheap_sword.class';
-import { FancySword } from 'libs/shared/data-access-model/src/lib/sword/fancy_sword.class';
+import { Blacksmith, CheapSword, FancySword, Sword } from '@company-name/shared/data-access-model';
 import * as Phaser from 'phaser';
 
 import { ScrollManager } from '../utilities/scroll-manager';

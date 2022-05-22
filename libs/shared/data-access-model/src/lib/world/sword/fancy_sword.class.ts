@@ -1,6 +1,5 @@
 /* eslint-disable no-magic-numbers */
-import { SwordTypeEnum } from '../enums/sword.enum';
-import { Sword } from './sword.class';
+import { Sword, SwordTypeEnum } from '@company-name/shared/data-access-model';
 
 export class FancySword extends Phaser.GameObjects.Image implements Sword {
     public static fancySwordImageAsset = 'assets/fancy_sword_adapted.png'; // * The asset for the sword, relative to URL
