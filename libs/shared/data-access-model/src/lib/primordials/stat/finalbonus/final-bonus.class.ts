@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * * FinalBonus is added to the Stat AFTER everything else has been calculated
  */

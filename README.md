@@ -15,11 +15,16 @@ This repository will give you a great starting point!
 
 That's it for the renaming!  Now to test...
 
-7. npm install
-8. npx nx run example-app:serve (where example-app is the name you replaced with above)
+```npm install```
+
+```npx nx run example-app:serve``` (where example-app is the name you replaced with above)
 
 You should now load your example app!
 
+# Checking Licenses
+
+To run the license checker, use 
+`npx license-checker --summary` or vanilla `npx license-checker`
 # Important - Utilizing this Repo
 
 Most of the commands to generate projects/capabilities/apps are default to NX, Ionic, or Angular (in that order), so we will NOT include their specific instructions since as the packages update so will the documentation.  

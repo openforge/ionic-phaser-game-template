@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * * BaseStat class value is one that comes directly from the serialized data without any kind of modifications
  * * The BaseStats class is used as part of the Composite OOP. This allows us to easily handle many types of stats and groupings

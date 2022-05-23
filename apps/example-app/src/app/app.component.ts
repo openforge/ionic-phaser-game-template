@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Component, OnDestroy } from '@angular/core';
 import { Event, Warrior } from '@company-name/shared/data-access-model';
 import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
@@ -19,7 +22,7 @@ export class AppComponent implements OnDestroy {
         this.actionsHistoryRef = PhaserSingletonService.actionsHistory;
     }
 
-    public async openShop() {
+    public async openShop(): Promise<void> {
         const modal = await this.modalController.create({
             component: ShopPageComponent,
             cssClass: 'fullscreen',
@@ -30,7 +33,7 @@ export class AppComponent implements OnDestroy {
     /**
      * * Creates a warrior to be placed on scene
      */
-    public async createWarrior() {
+    public async createWarrior(): Promise<void> {
         console.log('createWarrior()');
         const tmpWarrior = await Warrior.build(new Warrior());
         this.warriors.push(tmpWarrior);
@@ -41,14 +44,14 @@ export class AppComponent implements OnDestroy {
      *
      * @param _warrior Warrior
      */
-    public async doPushUps(_warrior: Warrior) {
+    public async doPushUps(_warrior: Warrior): Promise<void> {
         await _warrior.doPushUps();
     }
 
     /**
      * * Creates a Event and applies it to a random Warrior
      */
-    public async createEvent() {
+    public async createEvent(): Promise<void> {
         // * This function creates an 'experience' event that modifies the Warrior
         const xpEvent = new Event();
         console.log('createEvent()', 'value = ', xpEvent.value);

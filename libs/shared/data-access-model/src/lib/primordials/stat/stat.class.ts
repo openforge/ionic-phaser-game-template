@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { FinalBonus } from './finalbonus/final-bonus.class';
 import { RawBonus } from './rawbonus/raw-bonus.class';
 import { BaseStat } from './stat.base.class';

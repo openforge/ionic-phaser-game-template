@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Stat } from '@company-name/shared/data-access-model';
 
 export class Level extends Stat {

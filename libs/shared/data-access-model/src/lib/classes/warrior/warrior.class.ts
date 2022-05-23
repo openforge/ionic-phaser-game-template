@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-magic-numbers */
 import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 

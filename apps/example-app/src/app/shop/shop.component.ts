@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwordTypeEnum } from '@company-name/shared/data-access-model';
@@ -21,10 +22,11 @@ export class ShopPageComponent implements OnInit {
     /**
      * * Purchase Sword
      */
-    public async purchaseSword(type: string) {
+    public async purchaseSword(type: string): Promise<void> {
         const swordType = type === 'fancy' ? SwordTypeEnum.FANCY : SwordTypeEnum.CHEAP;
         console.log('shop.component.ts', `Purchasing ${swordType} Sword...`);
         await this.router.navigate(['/home']); // * Travel home first so that Phaser exists
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         PhaserSingletonService.shopObservable.next(swordType);
         if (this.isModal) {
             this.closeModal();
@@ -34,7 +36,7 @@ export class ShopPageComponent implements OnInit {
     /**
      * * Check if component was opened on a modal
      */
-    public checkIfModal() {
+    public checkIfModal(): void {
         void this.modalController.getTop().then(res => {
             if (res) {
                 this.isModal = true;
@@ -45,7 +47,7 @@ export class ShopPageComponent implements OnInit {
     /**
      * * Function to close modal
      */
-    public closeModal() {
+    public closeModal(): void {
         void this.modalController.dismiss();
     }
 }
