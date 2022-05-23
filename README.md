@@ -1,4 +1,4 @@
-# OpenForge Ionic Monorepo Example
+# Mobile Game Template - Ionic & Phaser Monorepo
 
 This is a template project for all you aspiring video game developers out there!   Want to use your web application skills for creating an awesome video game? 
 
