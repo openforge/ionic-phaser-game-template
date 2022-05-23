@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
     /**
      * * On Init, initilize the Phaser Singleton instance
      */
-    async ngOnInit() {
+    async ngOnInit(): Promise<void> {
         await PhaserSingletonService.init();
     }
 }

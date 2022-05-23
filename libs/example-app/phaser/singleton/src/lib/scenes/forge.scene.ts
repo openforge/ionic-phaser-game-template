@@ -18,7 +18,7 @@ export class ForgeScene extends Phaser.Scene {
         super({ key: 'preloader' });
     }
 
-    async preload() {
+    async preload(): Promise<void> {
         try {
             console.log('forge.scene.ts', 'Preloading Assets...');
             // * First, set the base URL since we're just loading from the main application's asset folder
@@ -39,7 +39,7 @@ export class ForgeScene extends Phaser.Scene {
     /**
      * * Load the blacksmith sprites
      */
-    preloadBlacksmithCharacter() {
+    preloadBlacksmithCharacter(): void {
         this.load.atlas(Blacksmith.blacksmithIdleKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
         this.load.atlas(Blacksmith.blacksmithHammeringKey, Blacksmith.blacksmithSpriteSheet, Blacksmith.blacksmithAtlas);
         this.load.animation(this.backgroundKey, Blacksmith.blacksmithAnimation);
@@ -48,7 +48,7 @@ export class ForgeScene extends Phaser.Scene {
     /**
      * * Phaser will only call create after all assets in Preload have been loaded
      */
-    async create() {
+    async create(): Promise<void> {
         console.log('forge.scene.ts', 'Creating Assets...', this.scale.width, this.scale.height);
 
         // * Setup the Background Image
@@ -77,7 +77,7 @@ export class ForgeScene extends Phaser.Scene {
      *
      * @param gameSize
      */
-    resize(gameSize: Phaser.Structs.Size) {
+    resize(gameSize: Phaser.Structs.Size): void {
         console.log('Resizing', gameSize.width, gameSize.height);
         this.cameras.resize(gameSize.width, gameSize.height);
     }

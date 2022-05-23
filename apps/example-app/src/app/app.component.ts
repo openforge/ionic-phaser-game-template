@@ -16,7 +16,7 @@ export class AppComponent implements OnDestroy {
         this.actionsHistoryRef = PhaserSingletonService.actionsHistory;
     }
 
-    public async openShop() {
+    public async openShop(): Promise<void> {
         const modal = await this.modalController.create({
             component: ShopPageComponent,
             cssClass: 'fullscreen',

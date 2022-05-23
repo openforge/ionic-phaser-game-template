@@ -49,7 +49,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     /**
      * * Sets the blacksmith's animation to Idle
      */
-    public setIdle() {
+    public setIdle(): void {
         console.log('Blacksmith going to idle!');
         this.play(Blacksmith.blacksmithIdleKey);
     }
@@ -57,7 +57,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     /**
      * * Sets the blacksmith's animation to Hammering
      */
-    public async buildSword(_type: SwordTypeEnum) {
+    public async buildSword(_type: SwordTypeEnum): Promise<void> {
         console.log('blacksmith.class.ts', 'buildSword()', _type);
 
         // * Start the animation
@@ -74,6 +74,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
         }
 
         if (tmpSword) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             PhaserSingletonService.actionsHistory.push(tmpSword.type, ' sword completed! ');
         }
 

@@ -33,7 +33,7 @@ export class ScrollManager {
     /**
      * * Scrolls the scene to the center over a duration.  Higher the duration, the slower the scroll.
      */
-    public scrollToCenter() {
+    public scrollToCenter(): void {
         this.scene.tweens.add({
             targets: this,
             nextScrollX: this.maxScrollX / 2,
@@ -48,7 +48,7 @@ export class ScrollManager {
      * @param x Origin number
      * @param y Origin
      */
-    public scrollTo(x: number, y: number) {
+    public scrollTo(x: number, y: number): void {
         this.scene.tweens.add({
             targets: this,
             nextScrollX: x,
@@ -62,7 +62,7 @@ export class ScrollManager {
      *
      * @param object the image background to size the scrolling to and attach drag listeners to.
      */
-    public registerScrollingBackground(object: BackgroundImage) {
+    public registerScrollingBackground(object: BackgroundImage): void {
         console.log('registerScrollingBackground', object);
         this.backgroundImage = object;
         this.applyScrollingHandlers(object);
@@ -72,7 +72,7 @@ export class ScrollManager {
      *
      * @param object BackgroundImage
      */
-    public unregisterScrollingBackground(object: BackgroundImage) {
+    public unregisterScrollingBackground(object: BackgroundImage): void {
         if (!(object.input && object.input.enabled)) {
             object.disableInteractive();
         }
@@ -84,7 +84,7 @@ export class ScrollManager {
      *
      * @param duration the duration of the pan in milliseconds
      */
-    public panBackground(duration: number = 1000) {
+    public panBackground(duration: number = 1000): void {
         this.scene.add.tween({
             targets: this,
             nextScrollX: {

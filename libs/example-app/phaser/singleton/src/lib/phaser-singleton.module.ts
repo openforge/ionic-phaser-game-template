@@ -46,7 +46,7 @@ export class PhaserSingletonService {
     /**
      * * When A user Logs out, destroy the active game.
      */
-    public static destroyActiveGame() {
+    public static destroyActiveGame(): void {
         //* Param 1: Set to true if you would like the parent canvas element removed from the DOM.
         //* Param 2: Set to false  If you do need to create another game instance on the same page
         if (PhaserSingletonService.activeGame) {
@@ -62,13 +62,14 @@ export class PhaserSingletonService {
      * ! GameInstance must be the parent class to scenes.
      * ! Should only be called *when* we want it to load in memory.  I.e. during simulation.
      */
-    public static async init() {
+    public static async init(): Promise<void> {
         console.warn('phaser-singleton init');
         /**
          * * Phaser by default runs at 60 FPS, and each frame that triggers change detection in Angular which causes
          * * Performance to go out the door.  NgZone's runOutsideAngular will prevent Phaser from automatically hitting change detection
          * * https://angular.io/guide/zone
          */
+
         PhaserSingletonService.ngZone.runOutsideAngular(() => {
             if (!PhaserSingletonService.activeGame) {
                 // To scale game to always fit in parent container
@@ -103,7 +104,7 @@ export class PhaserSingletonService {
      *
      * @returns string[]
      */
-    public static getActionsHistory() {
+    public static getActionsHistory(): string[] {
         return PhaserSingletonService.actionsHistory;
     }
 }

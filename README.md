@@ -15,8 +15,9 @@ This repository will give you a great starting point!
 
 That's it for the renaming!  Now to test...
 
-7. npm install
-8. npx nx run example-app:serve (where example-app is the name you replaced with above)
+```npm install```
+
+```npx nx run example-app:serve``` (where example-app is the name you replaced with above)
 
 You should now load your example app!
 
