@@ -1,0 +1,23 @@
+{
+    "projectType": "library",
+    "root": "libs/shared/phaser-singleton",
+    "sourceRoot": "libs/shared/phaser-singleton/src",
+    "prefix": "company-name",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/shared/phaser-singleton"],
+            "options": {
+                "jestConfig": "libs/shared/phaser-singleton/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/shared/phaser-singleton/src/**/*.ts", "libs/shared/phaser-singleton/src/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

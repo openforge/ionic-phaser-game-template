@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PhaserSingletonService } from '@company-name/example-app/phaser/singleton';
 import { SwordTypeEnum } from '@company-name/shared/data-access-model';
+import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -25,6 +26,7 @@ export class ShopPageComponent implements OnInit {
         const swordType = type === 'fancy' ? SwordTypeEnum.FANCY : SwordTypeEnum.CHEAP;
         console.log('shop.component.ts', `Purchasing ${swordType} Sword...`);
         await this.router.navigate(['/home']); // * Travel home first so that Phaser exists
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         PhaserSingletonService.shopObservable.next(swordType);
         if (this.isModal) {
             this.closeModal();
