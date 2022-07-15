@@ -1,6 +1,6 @@
 module.exports = {
-    displayName: 'shared-phaser-singleton',
-    preset: '../../../jest.preset.js',
+    displayName: 'example-app-phaser-ui-modals',
+
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
     globals: {
         'ts-jest': {
@@ -8,10 +8,11 @@ module.exports = {
             stringifyContentPathRegex: '\\.(html|svg)$',
         },
     },
-    coverageDirectory: '../../../coverage/libs/shared/phaser-singleton',
+    coverageDirectory: '../../../../coverage/libs/example-app/phaser/ui-modals',
     transform: {
         '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
     },
     transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     snapshotSerializers: ['jest-preset-angular/build/serializers/no-ng-attributes', 'jest-preset-angular/build/serializers/ng-snapshot', 'jest-preset-angular/build/serializers/html-comment'],
+    preset: '../../../../jest.preset.ts',
 };
