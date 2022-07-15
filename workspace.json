@@ -1,11 +1,11 @@
 {
-    "version": 2,
-    "projects": {
-        "data-access-model": "libs/shared/data-access-model",
-        "example-app": "apps/example-app",
-        "example-app-e2e": "apps/example-app-e2e",
-        "example-app-ionic-ui-modals": "libs/example-app/ionic/ui-modals",
-        "example-app-phaser-ui-modals": "libs/example-app/phaser/ui-modals",
-        "shared-phaser-singleton": "libs/shared/phaser-singleton"
-    }
+  "version": 2,
+  "projects": {
+    "data-access-model": "libs/shared/data-access-model",
+    "example-app": "apps/example-app",
+    "example-app-e2e": "apps/example-app-e2e",
+    "example-app-ionic-ui-modals": "libs/example-app/ionic/ui-modals",
+    "example-app-phaser-ui-modals": "libs/example-app/phaser/ui-modals",
+    "shared-phaser-singleton": "libs/shared/phaser-singleton"
+  }
 }

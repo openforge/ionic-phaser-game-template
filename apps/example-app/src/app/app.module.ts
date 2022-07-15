@@ -15,7 +15,6 @@ import { ShopPageComponent } from './shop/shop.component';
 
 @NgModule({
     declarations: [AppComponent, ShopPageComponent, HomePageComponent, ReversePipe],
-    entryComponents: [],
     imports: [BrowserModule, IonicModule.forRoot(), PhaserSingletonService.forRoot(), AppRoutingModule],
     providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
     bootstrap: [AppComponent],

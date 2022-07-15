@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable no-magic-numbers */
+/* eslint-disable no-magic-numbers, @typescript-eslint/no-unsafe-argument */
 import { CheapSword, FancySword, Human, SwordTypeEnum } from '@company-name/shared/data-access-model';
 import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import * as Phaser from 'phaser';
