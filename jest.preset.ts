@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-const nxPreset = require('@nrwl/jest/preset');
+import { getJestProjects } from '@nrwl/jest';
 
-module.exports = { ...nxPreset };
+module.exports = {
+    projects: getJestProjects(),
+};

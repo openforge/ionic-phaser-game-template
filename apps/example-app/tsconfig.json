@@ -1,4 +1,7 @@
 {
     "extends": "../../tsconfig.base.json",
-    "exclude": ["jest.config.ts"]
+    "exclude": ["jest.config.ts"],
+    "compilerOptions": {
+        "target": "es2020"
+    }
 }

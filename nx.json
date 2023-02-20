@@ -3,16 +3,6 @@
     "affected": {
         "defaultBase": "develop"
     },
-    "implicitDependencies": {
-        "package.json": {
-            "dependencies": "*",
-            "devDependencies": "*"
-        },
-        ".eslintrc.json": "*",
-        ".stylelintrc.json": "*",
-        "tsconfig.base.json": "*",
-        "tsconfig.json": "*"
-    },
     "tasksRunnerOptions": {
         "default": {
             "runner": "nx/tasks-runners/default",
@@ -20,17 +10,6 @@
                 "cacheableOperations": ["build", "lint", "test", "e2e", "stylelint"]
             }
         }
-    },
-    "targetDependencies": {
-        "build": [
-            {
-                "target": "build",
-                "projects": "dependencies"
-            }
-        ]
-    },
-    "cli": {
-        "defaultCollection": "@nrwl/angular"
     },
     "generators": {
         "@nrwl/angular:application": {
@@ -47,5 +26,26 @@
             "style": "scss"
         }
     },
-    "defaultProject": "example-app"
+    "defaultProject": "example-app",
+    "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"],
+            "inputs": ["production", "^production"]
+        },
+        "lint": {
+            "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+        },
+        "test": {
+            "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.ts"]
+        },
+        "e2e": {
+            "inputs": ["default", "^production"]
+        }
+    },
+    "namedInputs": {
+        "default": ["{projectRoot}/**/*", "sharedGlobals"],
+        "sharedGlobals": ["{workspaceRoot}/.stylelintrc.json", "{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/tsconfig.json"],
+        "production": ["default", "!{projectRoot}/.eslintrc.json", "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)", "!{projectRoot}/tsconfig.spec.json", "!{projectRoot}/jest.config.[jt]s"]
+    }
 }

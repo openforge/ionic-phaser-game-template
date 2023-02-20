@@ -1,12 +1,13 @@
 {
+    "name": "data-access-model",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "root": "libs/shared/data-access-model",
     "sourceRoot": "libs/shared/data-access-model/src",
     "prefix": "company-name",
     "targets": {
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/libs/shared/data-access-model"],
+            "outputs": ["{workspaceRoot}/coverage/libs/shared/data-access-model"],
             "options": {
                 "jestConfig": "libs/shared/data-access-model/jest.config.ts",
                 "passWithNoTests": true
