@@ -1,12 +1,13 @@
 {
+    "name": "example-app-phaser-ui-modals",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "root": "libs/example-app/phaser/ui-modals",
     "sourceRoot": "libs/example-app/phaser/ui-modals/src",
     "prefix": "company-name",
     "targets": {
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/libs/example-app/phaser/ui-modals"],
+            "outputs": ["{workspaceRoot}/coverage/libs/example-app/phaser/ui-modals"],
             "options": {
                 "jestConfig": "libs/example-app/phaser/ui-modals/jest.config.ts",
                 "passWithNoTests": true

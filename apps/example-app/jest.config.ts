@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
     displayName: 'example-app',
 
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

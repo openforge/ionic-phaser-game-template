@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
     displayName: 'shared-phaser-singleton',
 
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

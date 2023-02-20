@@ -1,12 +1,13 @@
 {
+    "name": "shared-phaser-singleton",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "root": "libs/shared/phaser-singleton",
     "sourceRoot": "libs/shared/phaser-singleton/src",
     "prefix": "company-name",
     "targets": {
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/libs/shared/phaser-singleton"],
+            "outputs": ["{workspaceRoot}/coverage/libs/shared/phaser-singleton"],
             "options": {
                 "jestConfig": "libs/shared/phaser-singleton/jest.config.ts",
                 "passWithNoTests": true
