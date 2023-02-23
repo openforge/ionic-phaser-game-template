@@ -7,7 +7,9 @@
     "build": "nx build",
     "test": "nx test",
     "postinstall": "ngcc --properties es2020 browser module main",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "serve:app:vue": "nx serve example-app-vue",
+    "build:app:vue": "nx build example-app-vue"
   },
   "private": true,
   "devDependencies": {
@@ -78,6 +80,7 @@
     "@ionic/angular": "^6.1.11",
     "@nrwl/eslint-plugin-nx": "^13.2.1",
     "@schematics/angular": "^15.1.6",
+    "@vitejs/plugin-vue": "^4.0.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsdoc": "^37.8.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
