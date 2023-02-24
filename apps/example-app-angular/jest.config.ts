@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-    displayName: 'example-app-phaser-ui-modals',
+    displayName: 'example-app-angular',
 
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
     globals: {
@@ -9,11 +9,11 @@ export default {
             stringifyContentPathRegex: '\\.(html|svg)$',
         },
     },
-    coverageDirectory: '../../../../coverage/libs/example-app/phaser/ui-modals',
+    coverageDirectory: '../../coverage/apps/example-app-angular',
     transform: {
         '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
     },
     transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     snapshotSerializers: ['jest-preset-angular/build/serializers/no-ng-attributes', 'jest-preset-angular/build/serializers/ng-snapshot', 'jest-preset-angular/build/serializers/html-comment'],
-    preset: '../../../../jest.preset.ts',
+    preset: '../../jest.preset.ts',
 };

@@ -1,29 +1,29 @@
 {
-    "name": "example-app",
+    "name": "example-app-angular",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
-    "sourceRoot": "apps/example-app/src",
+    "sourceRoot": "apps/example-app-angular/src",
     "prefix": "openforge",
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:browser",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/apps/example-app",
-                "index": "apps/example-app/src/index.html",
-                "main": "apps/example-app/src/main.ts",
-                "polyfills": "apps/example-app/src/polyfills.ts",
-                "tsConfig": "apps/example-app/tsconfig.app.json",
+                "outputPath": "dist/apps/example-app-angular",
+                "index": "apps/example-app-angular/src/index.html",
+                "main": "apps/example-app-angular/src/main.ts",
+                "polyfills": "apps/example-app-angular/src/polyfills.ts",
+                "tsConfig": "apps/example-app-angular/tsconfig.app.json",
                 "inlineStyleLanguage": "scss",
                 "assets": [
-                    "apps/example-app/src/assets",
+                    "apps/example-app-angular/src/assets",
                     {
                         "glob": "**/*.svg",
                         "input": "node_modules/ionicons/dist/ionicons/svg",
                         "output": "./svg"
                     }
                 ],
-                "styles": ["apps/example-app/src/global.scss"],
+                "styles": ["apps/example-app-angular/src/global.scss"],
                 "scripts": []
             },
             "configurations": {
@@ -42,8 +42,8 @@
                     ],
                     "fileReplacements": [
                         {
-                            "replace": "apps/example-app/src/environments/environment.ts",
-                            "with": "apps/example-app/src/environments/environment.prod.ts"
+                            "replace": "apps/example-app-angular/src/environments/environment.ts",
+                            "with": "apps/example-app-angular/src/environments/environment.prod.ts"
                         }
                     ],
                     "outputHashing": "all"
@@ -63,10 +63,10 @@
             "executor": "@angular-devkit/build-angular:dev-server",
             "configurations": {
                 "production": {
-                    "browserTarget": "example-app:build:production"
+                    "browserTarget": "example-app-angular:build:production"
                 },
                 "development": {
-                    "browserTarget": "example-app:build:development"
+                    "browserTarget": "example-app-angular:build:development"
                 }
             },
             "defaultConfiguration": "development"
@@ -74,20 +74,20 @@
         "extract-i18n": {
             "executor": "@angular-devkit/build-angular:extract-i18n",
             "options": {
-                "browserTarget": "example-app:build"
+                "browserTarget": "example-app-angular:build"
             }
         },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "options": {
-                "lintFilePatterns": ["apps/example-app/src/**/*.ts", "apps/example-app/src/**/*.html"]
+                "lintFilePatterns": ["apps/example-app-angular/src/**/*.ts", "apps/example-app-angular/src/**/*.html"]
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["{workspaceRoot}/coverage/apps/example-app"],
+            "outputs": ["{workspaceRoot}/coverage/apps/example-app-angular"],
             "options": {
-                "jestConfig": "apps/example-app/jest.config.ts",
+                "jestConfig": "apps/example-app-angular/jest.config.ts",
                 "passWithNoTests": true
             }
         },
@@ -95,7 +95,7 @@
             "executor": "nx-stylelint:lint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/example-app/**/*.css", "apps/example-app/**/*.scss"]
+                "lintFilePatterns": ["apps/example-app-angular/**/*.css", "apps/example-app-angular/**/*.scss"]
             }
         }
     },

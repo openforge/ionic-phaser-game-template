@@ -15,8 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@company-name/example-app/ionic/ui-modals": ["libs/example-app/ionic/ui-modals/src/index.ts"],
-            "@company-name/example-app/phaser/ui-modals": ["libs/example-app/phaser/ui-modals/src/index.ts"],
+            "@company-name/example-app-angular/ionic/ui-modals": ["libs/example-app-angular/ionic/ui-modals/src/index.ts"],
+            "@company-name/example-app-angular/phaser/ui-modals": ["libs/example-app-angular/phaser/ui-modals/src/index.ts"],
             "@company-name/shared-phaser-singleton": ["libs/shared/phaser-singleton/src/index.ts"],
             "@company-name/shared/data-access-model": ["libs/shared/data-access-model/src/index.ts"]
         }
