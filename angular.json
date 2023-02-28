@@ -1,6 +1,0 @@
-{
-    "version": 1,
-    "projects": {
-        "example-app-angular": "apps/example-app-angular"
-    }
-}
