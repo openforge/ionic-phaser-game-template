@@ -14,6 +14,7 @@
     "sync:app:angular": "cd apps/example-app-angular && npx cap sync",
     "update:app:angular": "cd apps/example-app-angular && npx cap update",
     "ios:app:angular": "cd apps/example-app-angular && npx cap open ios",
+    "android:app:angular": "cd apps/example-app-angular && npx cap open android",
     "serve:app:vue": "nx serve example-app-vue",
     "build:app:vue": "nx build example-app-vue",
     "serve:app:react": "nx serve example-app-react",
