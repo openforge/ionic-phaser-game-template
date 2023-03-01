@@ -1,163 +1,171 @@
 {
-  "root": true,
-  "plugins": ["prettier", "simple-import-sort", "@angular-eslint", "@typescript-eslint", "import"],
-  "parserOptions": {
-      "project": "tsconfig.*.json"
-  },
-  "settings": {
-      "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-      "import/parsers": {
-          "@typescript-eslint/parser": [".ts", ".tsx"]
-      },
-      "import/resolver": {
-        "node": {
-          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    "root": true,
+    "plugins": ["prettier", "simple-import-sort", "@angular-eslint", "@typescript-eslint", "import"],
+    "parserOptions": {
+        "project": "tsconfig.*.json",
+        "sourceType": "module"
+    },
+    "settings": {
+        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
         }
-      }
-  },
-  "ignorePatterns": ["node_modules/**"],
-  "overrides": [
-      {
-          "files": ["*.ts"],
-          "extends": [
-              "eslint:recommended",
-              "plugin:@angular-eslint/recommended",
-              "plugin:@angular-eslint/template/process-inline-templates",
-              "plugin:@angular-eslint/ng-cli-compat",
-              "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
-              "plugin:@typescript-eslint/recommended",
-              "plugin:@typescript-eslint/recommended-requiring-type-checking",
-              "plugin:import/recommended",
-              "plugin:import/typescript",
-              "plugin:prettier/recommended",
-              "prettier",
-              "plugin:@angular-eslint/recommended--extra"
-          ],
-          "rules": {
-            "import/no-unresolved": "off",
-            "@typescript-eslint/no-misused-promises": [
-                  "warn",
-                  {
-                      "checksVoidReturn": true,
-                      "checksConditionals": true
-                  }
-              ],
-              "@typescript-eslint/unbound-method": "off",
-              "@typescript-eslint/restrict-plus-operands": [
-                  "error",
-                  {
-                      "checkCompoundAssignments": true
-                  }
-              ],
-              "@typescript-eslint/restrict-template-expressions": "off",
-              "@typescript-eslint/no-floating-promises": [
-                  "error",
-                  {
-                      "ignoreVoid": true,
-                      "ignoreIIFE": true
-                  }
-              ],
-              "@typescript-eslint/naming-convention": "off",
-              "@typescript-eslint/require-await": "off",
-              "no-empty-function": "off",
-              "@typescript-eslint/no-empty-function": ["error",{
-                  "allow": ["constructors"]
-              }],
-              "@typescript-eslint/await-thenable": "off",
-              "@typescript-eslint/no-unused-vars": "error",
-              "@typescript-eslint/no-unused-expressions": [
-                  "error",
-                  {
-                      "allowShortCircuit": true,
-                      "allowTernary": true
-                  }
-              ],
-              "@typescript-eslint/ban-types": "error",
-              "@typescript-eslint/member-ordering": "error",
-              "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-              "@typescript-eslint/dot-notation": "error",
-              "@typescript-eslint/no-shadow": "error",
-              "@typescript-eslint/no-this-alias": [
-                  "error",
-                  {
-                      "allowedNames": ["self"]
-                  }
-              ],
-              "@typescript-eslint/explicit-member-accessibility": [
-                  "off",
-                  {
-                      "accessibility": "explicit"
-                  }
-              ],
-              "@typescript-eslint/no-inferrable-types": [
-                  "off",
-                  {
-                      "ignoreParameters": true
-                  }
-              ],
-              "@angular-eslint/no-empty-lifecycle-method": "off",
-              "@angular-eslint/component-class-suffix": "error",
-              "@angular-eslint/directive-selector": [
-                  "error",
-                  {
-                      "type": "attribute",
-                      "prefix": ["openforge"],
-                      "style": "camelCase"
-                  }
-              ],
-              "@angular-eslint/component-selector": [
-                  "error",
-                  {
-                      "type": "element",
-                      "prefix": ["openforge"],
-                      "style": "kebab-case"
-                  }
-              ],
-              "yoda": [2, "never"],
-              "simple-import-sort/imports": "error",
-              "no-compare-neg-zero": "error",
-              "eqeqeq": "error",
-              "no-magic-numbers": [
-                  "error",
-                  {
-                      "ignore": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 40, 90, 100, 200, 201, 204, 400, 404, 500, 2000, 10000, 15000, 20000],
-                      "ignoreArrayIndexes": true
-                  }
-              ],
-              "arrow-body-style": ["error", "as-needed"],
-              "prefer-arrow-callback": "error",
-              "no-undef-init": "error",
-              "max-classes-per-file": ["error", 1],
-              "prettier/prettier": "error",
-              "brace-style": ["error", "1tbs"],
-              "max-len": [
-                  "off",
-                  {
-                      "code": 140
-                  }
-              ],
-              "no-underscore-dangle": "off",
-              "import/no-cycle": [
-                  "error",
-                  {
-                      "maxDepth": 10,
-                      "ignoreExternal": true
-                  }
-              ],
-              "import/no-self-import": "error",
-              "import/named": 2,
-              "import/namespace": 2,
-              "import/default": 2,
-              "import/export": 2
-          }
-      },
-      {
-          "files": ["*.js"],
-          "parser": "babel-eslint"
-      },
-      {
-          "files": ["*.html"],
-          "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@nrwl/nx/angular-template"]
-      }
-  ]
+    },
+    "ignorePatterns": ["node_modules/**"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "plugin:@angular-eslint/ng-cli-compat",
+                "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking",
+                "plugin:import/recommended",
+                "plugin:import/typescript",
+                "plugin:prettier/recommended",
+                "prettier",
+                "plugin:@angular-eslint/recommended--extra"
+            ],
+            "rules": {
+                "import/no-unresolved": "off",
+                "@typescript-eslint/no-misused-promises": [
+                    "warn",
+                    {
+                        "checksVoidReturn": true,
+                        "checksConditionals": true
+                    }
+                ],
+                "@typescript-eslint/unbound-method": "off",
+                "@typescript-eslint/restrict-plus-operands": [
+                    "error",
+                    {
+                        "checkCompoundAssignments": true
+                    }
+                ],
+                "@typescript-eslint/restrict-template-expressions": "off",
+                "@typescript-eslint/no-floating-promises": [
+                    "error",
+                    {
+                        "ignoreVoid": true,
+                        "ignoreIIFE": true
+                    }
+                ],
+                "@typescript-eslint/naming-convention": "off",
+                "@typescript-eslint/require-await": "off",
+                "no-empty-function": "off",
+                "@typescript-eslint/no-empty-function": [
+                    "error",
+                    {
+                        "allow": ["constructors"]
+                    }
+                ],
+                "@typescript-eslint/await-thenable": "off",
+                "@typescript-eslint/no-unused-vars": "error",
+                "@typescript-eslint/no-unused-expressions": [
+                    "error",
+                    {
+                        "allowShortCircuit": true,
+                        "allowTernary": true
+                    }
+                ],
+                "@typescript-eslint/ban-types": "error",
+                "@typescript-eslint/member-ordering": "error",
+                "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+                "@typescript-eslint/dot-notation": "error",
+                "@typescript-eslint/no-shadow": "error",
+                "@typescript-eslint/no-this-alias": [
+                    "error",
+                    {
+                        "allowedNames": ["self"]
+                    }
+                ],
+                "@typescript-eslint/explicit-member-accessibility": [
+                    "off",
+                    {
+                        "accessibility": "explicit"
+                    }
+                ],
+                "@typescript-eslint/no-inferrable-types": [
+                    "off",
+                    {
+                        "ignoreParameters": true
+                    }
+                ],
+                "@angular-eslint/no-empty-lifecycle-method": "off",
+                "@angular-eslint/component-class-suffix": "error",
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": ["openforge"],
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": ["openforge"],
+                        "style": "kebab-case"
+                    }
+                ],
+                "yoda": [2, "never"],
+                "simple-import-sort/imports": "error",
+                "no-compare-neg-zero": "error",
+                "eqeqeq": "error",
+                "no-magic-numbers": [
+                    "error",
+                    {
+                        "ignore": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 40, 90, 100, 200, 201, 204, 400, 404, 500, 2000, 10000, 15000, 20000],
+                        "ignoreArrayIndexes": true
+                    }
+                ],
+                "arrow-body-style": ["error", "as-needed"],
+                "prefer-arrow-callback": "error",
+                "no-undef-init": "error",
+                "max-classes-per-file": ["error", 1],
+                "prettier/prettier": "error",
+                "brace-style": ["error", "1tbs"],
+                "max-len": [
+                    "off",
+                    {
+                        "code": 140
+                    }
+                ],
+                "no-underscore-dangle": "off",
+                "import/no-cycle": [
+                    "error",
+                    {
+                        "maxDepth": 10,
+                        "ignoreExternal": true
+                    }
+                ],
+                "import/no-self-import": "error",
+                "import/named": 2,
+                "import/namespace": 2,
+                "import/default": 2,
+                "import/export": 2
+            }
+        },
+        {
+            "files": ["*.js"],
+            "parser": "babel-eslint"
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@nrwl/nx/angular-template"]
+        },
+        {
+            "files": ["*.tsx"],
+            "parser": "@typescript-eslint/parser"
+        }
+    ]
 }
