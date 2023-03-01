@@ -41,7 +41,7 @@
             }
         }
     },
-    "defaultProject": "example-app",
+    "defaultProject": "example-app-angular",
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
     "targetDefaults": {
         "build": {
