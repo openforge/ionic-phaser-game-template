@@ -70,10 +70,10 @@
     "prettier-eslint": "^8.8.2",
     "react-test-renderer": "18.2.0",
     "sass": "^1.55.0",
-    "stylelint": "^14.0.0",
+    "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-standard": "^23.0.0",
-    "stylelint-config-standard-scss": "^2.0.0",
+    "stylelint-config-standard-scss": "^2.0.1",
     "ts-jest": "28.0.8",
     "ts-node": "10.9.1",
     "typescript": "4.8.4",
@@ -120,17 +120,9 @@
     "*.spec.ts"
   ],
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
-    ],
-    "*.ts": [
-      "eslint --fix"
-    ],
-    "*.html": [
-      "eslint --fix"
-    ],
-    "*.tsx": [
-      "eslint --fix"
+    "*.{js,ts,html,tsx}": ["eslint --fix"],
+    "*.{css,scss}": [
+        "stylelint --fix"
     ]
   }
 }
