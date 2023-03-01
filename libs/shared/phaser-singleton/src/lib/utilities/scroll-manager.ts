@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers */
+/* eslint-disable no-magic-numbers, @typescript-eslint/no-unsafe-argument */
 import * as Phaser from 'phaser';
 
 type BackgroundImage = Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.ComputedSize;

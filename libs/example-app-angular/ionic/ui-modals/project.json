@@ -1,0 +1,24 @@
+{
+    "name": "example-app-angular-ionic-ui-modals",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/example-app-angular/ionic/ui-modals/src",
+    "prefix": "company-name",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/libs/example-app-angular/ionic/ui-modals"],
+            "options": {
+                "jestConfig": "libs/example-app-angular/ionic/ui-modals/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/example-app-angular/ionic/ui-modals/src/**/*.ts", "libs/example-app-angular/ionic/ui-modals/src/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

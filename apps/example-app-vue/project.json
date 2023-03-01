@@ -1,0 +1,58 @@
+{
+    "name": "example-app-vue",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/example-app-vue/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/vite:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/example-app-vue",
+                "baseHref": "/"
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/example-app-vue/src/environments/environment.ts",
+                            "with": "apps/example-app-vue/src/environments/environment.prod.ts"
+                        }
+                    ]
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nrwl/vite:dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "example-app-vue:build"
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/example-app-vue/src/environments/environment.ts",
+                            "with": "apps/example-app-vue/src/environments/environment.prod.ts"
+                        }
+                    ]
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/example-app-vue/**/*.{ts,js,tsx,jsx}"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/vite:test",
+            "options": {
+                "vitestConfig": "apps/example-app-vue/vitest.config.ts"
+            }
+        }
+    },
+    "tags": []
+}
