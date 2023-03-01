@@ -1,0 +1,14 @@
+{
+    "name": "example-app-angular",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "@capacitor/android": "4.7.0",
+        "@capacitor/core": "^4.7.0",
+        "@capacitor/ios": "4.7.0"
+    },
+    "devDependencies": {
+        "@capacitor/cli": "^4.7.0"
+    }
+}

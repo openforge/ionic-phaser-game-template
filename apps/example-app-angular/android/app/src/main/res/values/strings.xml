@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">example-app-angular</string>
+    <string name="title_activity_main">example-app-angular</string>
+    <string name="package_name">angular.ionicphaser.openforge.io</string>
+    <string name="custom_url_scheme">angular.ionicphaser.openforge.io</string>
+</resources>
