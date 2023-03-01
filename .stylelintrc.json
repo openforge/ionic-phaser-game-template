@@ -1,0 +1,31 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+        "scss/at-import-partial-extension": null,
+        "scss/comment-no-empty": null,
+        "scss/double-slash-comment-empty-line-before": null,
+        "scss/at-extend-no-missing-placeholder": null,
+        "no-invalid-position-at-import-rule": null,
+        "rule-empty-line-before": null,
+        "selector-no-vendor-prefix": null,
+        "alpha-value-notation": null,
+        "color-function-notation": null,
+        "scss/no-global-function-names": null,
+        "value-keyword-case": null,
+        "shorthand-property-no-redundant-values": null,
+        "scss/operator-no-unspaced": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "keyframes-name-pattern": null,
+        "number-max-precision": null,
+        "scss/dollar-variable-empty-line-before": null,
+        "property-no-vendor-prefix": null,
+        "string-quotes": "single",
+        "max-empty-lines": 1,
+        "no-duplicate-selectors": true,
+        "scss/dollar-variable-pattern": "^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d]))*$",
+        "scss/selector-no-redundant-nesting-selector": true,
+        "declaration-empty-line-before": null,
+        "selector-pseudo-element-no-unknown": null,
+        "unit-disallowed-list": ["px"]
+    }
+}
