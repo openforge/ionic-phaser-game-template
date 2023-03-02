@@ -1,16 +1,16 @@
 .inventory-list {
-    display:flex;
+  display: flex;
 }
 
 ion-card-content {
-    height:250px;
+  height: 15.625rem;
 }
 
 ion-card {
+  width: 50%;
+  img {
     width: 50%;
-    img {
-        width: 50%;
-        margin: auto;
-        display: block;
-    }
+    margin: auto;
+    display: block;
+  }
 }
