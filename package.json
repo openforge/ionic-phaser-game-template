@@ -30,7 +30,7 @@
     "@angular-eslint/template-parser": "15.0.0",
     "@angular/compiler-cli": "15.1.5",
     "@angular/language-service": "15.1.5",
-    "@capacitor/cli": "^4.0.0",
+    "@capacitor/cli": "^4.8.0",
     "@ionic/angular-toolkit": "^6.0.0",
     "@nrwl/angular": "15.7.1",
     "@nrwl/cli": "15.7.1",
