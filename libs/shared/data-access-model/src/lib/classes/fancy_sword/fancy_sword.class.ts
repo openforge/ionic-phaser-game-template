@@ -5,7 +5,7 @@ export class FancySword extends Phaser.GameObjects.Image implements Sword {
     public static imageAsset = 'assets/swords/fancy_sword.png'; // * The asset for the sword, relative to URL
     public static key = 'fancy-sword'; // * Key for the fancy sword, used by phaser if it's an animation
 
-    constructor(phaserScene: Phaser.Scene) {
+    public constructor(phaserScene: Phaser.Scene) {
         super(phaserScene, 1300, -150, FancySword.key); // * + X is to the right, - Y is up
         console.log('fancy_sword.class', 'constructor()');
         this.swordType = SwordTypeEnum.FANCY; // * inherited from Sword

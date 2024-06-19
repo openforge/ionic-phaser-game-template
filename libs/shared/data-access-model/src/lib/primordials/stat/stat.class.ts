@@ -13,7 +13,7 @@ export class Stat extends BaseStat {
     private _finalBonuses = new Set<FinalBonus>();
     protected _finalValue: number;
 
-    constructor(value: number) {
+    public constructor(value: number) {
         super(value);
     }
 

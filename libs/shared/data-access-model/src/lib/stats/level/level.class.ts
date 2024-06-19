@@ -5,7 +5,7 @@ export class Level extends Stat {
     private static XP_PER_LEVEL = 5;
     private _xp: Stat;
 
-    constructor(startingValue) {
+    public constructor(startingValue) {
         super(startingValue);
     }
 

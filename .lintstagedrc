@@ -1,5 +1,6 @@
 {
-  "lint-staged": {
-    "*": ["eslint --fix", "git add"]
-  }
+  "*.{js,jsx,ts,tsx,html}": [
+    "eslint --fix",
+    "git add"
+  ]
 }

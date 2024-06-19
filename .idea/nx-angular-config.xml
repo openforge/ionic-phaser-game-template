@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NxAngularConfigService" workspaceLocation="file://$PROJECT_DIR$/nx.json">
+    <projects>
+      <project name="data-access-model" file="file://$PROJECT_DIR$/libs/shared/data-access-model/project.json" />
+      <project name="example-app-angular" file="file://$PROJECT_DIR$/apps/example-app-angular/project.json" />
+      <project name="example-app-angular-e2e" file="file://$PROJECT_DIR$/apps/example-app-angular-e2e/project.json" />
+      <project name="example-app-angular-ionic-ui-modals" file="file://$PROJECT_DIR$/libs/example-app-angular/ionic/ui-modals/project.json" />
+      <project name="example-app-angular-phaser-ui-modals" file="file://$PROJECT_DIR$/libs/example-app-angular/phaser/ui-modals/project.json" />
+      <project name="example-app-react" file="file://$PROJECT_DIR$/apps/example-app-react/project.json" />
+      <project name="example-app-react-e2e" file="file://$PROJECT_DIR$/apps/example-app-react-e2e/project.json" />
+      <project name="example-app-vue" file="file://$PROJECT_DIR$/apps/example-app-vue/project.json" />
+      <project name="shared-phaser-singleton" file="file://$PROJECT_DIR$/libs/shared/phaser-singleton/project.json" />
+    </projects>
+  </component>
+</project>

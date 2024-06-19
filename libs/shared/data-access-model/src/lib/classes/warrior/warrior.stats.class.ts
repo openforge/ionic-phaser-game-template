@@ -8,7 +8,7 @@ export class WarriorStats {
     public level: Level; // * Current level
     public xp: Stat; // TODO - Experience Points - migrate to it's own stat class
 
-    constructor(data: WarriorStats) {
+    public constructor(data: WarriorStats) {
         console.log('WarriorStats', data);
     }
 }

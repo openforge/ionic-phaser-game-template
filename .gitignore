@@ -105,6 +105,8 @@ dist
 
 # Angular cache
 .angular
-
+.idea
 # DS_STORE
 .DS_Store
+.nx/cache
+.nx/workspace-data

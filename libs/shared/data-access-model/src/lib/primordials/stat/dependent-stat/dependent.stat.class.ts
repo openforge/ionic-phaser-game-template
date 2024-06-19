@@ -8,7 +8,7 @@ import { Stat } from '../stat.class';
 export class DependentStat extends Stat {
     protected _otherStats = new Set<Stat>(); // * List of other (unknown) stats.  Calculated from classes that extend DependentStat
 
-    constructor(startingValue: number) {
+    public constructor(startingValue: number) {
         super(startingValue);
     }
 
