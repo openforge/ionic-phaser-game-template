@@ -23,7 +23,7 @@ export class ScrollManager {
     private backgroundImage: Phaser.GameObjects.Components.ComputedSize;
     private panningTarget: PanningTarget;
 
-    constructor(scene: Phaser.Scene) {
+    public constructor(scene: Phaser.Scene) {
         console.log('scroll-manager.ts', 'Constructor for ScrollManager');
         this.scene = scene;
         this.scene.events.on(Phaser.Scenes.Events.CREATE, this.create, this);

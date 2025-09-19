@@ -15,7 +15,7 @@ export class BaseStat {
      * @param _value value to be constructed with
      * @param _multiplier Optional multiplier - not every child will inherit this
      */
-    constructor(_value: number, _multiplier?) {
+    public constructor(_value: number, _multiplier?) {
         console.log('BaseStat', 'value =', _value, 'multiplier = ', _multiplier);
         this._baseValue = _value;
         this._baseMultiplier = _multiplier || 0;

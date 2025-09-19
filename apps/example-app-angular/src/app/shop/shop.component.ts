@@ -11,11 +11,15 @@ import { ModalController } from '@ionic/angular';
     styleUrls: ['./shop.component.scss'],
 })
 export class ShopPageComponent implements OnInit {
-    public isModal: boolean = false; // * Property to catch if component is on the modal or not
-    constructor(private router: Router, private modalController: ModalController) {}
+    public isModal = false; // * Property to catch if component is on the modal or not
+    public constructor(
+        private router: Router,
+        private modalController: ModalController
+    ) {
+        console.log('ShopPageComponent constructor');
+    }
 
-    ngOnInit(): void {
-        console.log('ShopPageComponent ngOnInit');
+    public ngOnInit(): void {
         this.checkIfModal();
     }
 

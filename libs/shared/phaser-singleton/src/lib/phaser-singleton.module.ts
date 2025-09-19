@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, NgZone, Optional, SkipSelf } from '@angular/core';
 import { SwordTypeEnum } from '@company-name/shared/data-access-model';
@@ -22,11 +23,14 @@ export class PhaserSingletonService {
     public static actionsHistory: string[] = []; // * Since phaser is a singleton, let's store the history of actions here for all components.
     public static shopObservable: Subject<SwordTypeEnum> = new Subject<SwordTypeEnum>();
 
-    constructor(private _ngZone: NgZone, @Optional() @SkipSelf() parentModule?: PhaserSingletonService) {
+    public constructor(
+        private ngZone: NgZone,
+        @Optional() @SkipSelf() parentModule?: PhaserSingletonService
+    ) {
         if (parentModule) {
             console.error('Phaser Singleton is already loaded. Import it in the AppModule only');
         } else {
-            PhaserSingletonService.ngZone = this._ngZone;
+            PhaserSingletonService.ngZone = ngZone;
             PhaserSingletonService.actionsHistory.push('Initializing Phaser...');
         }
     }
@@ -97,6 +101,7 @@ export class PhaserSingletonService {
                 });
             }
         });
+        return Promise.resolve();
     }
 
     /**

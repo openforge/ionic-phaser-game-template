@@ -1,3 +1,16 @@
+<p align="center">
+  <img src="https://s3.amazonaws.com/tw-inlineimages/467579/0/0/ff47c124a5732bf549b43532a7ac19e1.png"/>
+</p>
+<p align="center">
+  <a href="http://www.openforge.io/">Official Website</a> |
+  <a href="http://www.openforge.io/opportunities">Opportunities</a> |
+  <a href="https://openforge.io/mobile-academy/">Mobile Academy</a>
+</p>
+
+<h3 align="center">
+  Leading By Example.
+</h3>
+
 # Mobile Game Template - Ionic & Phaser Monorepo
 
 This is a template project for all you aspiring video game developers out there! Want to use your web application skills for creating an awesome video game?
@@ -12,13 +25,13 @@ This repository will give you a great starting point!
 4. Search + Replace all instances of 'example-app-"frameworkName"' with your app name
 5. Change the folder names for example-app-frameworkName and example-app-frameworkName-e2e to what you named for steps #1 and #2
 6. Search + Replace all instances of 'openforge-ionic-monorepo-example' with your project name
-7. Search + Replace 'company-name' with your company name.  This is the NX project scope that allows you to import libraries using @company-name
+7. Search + Replace 'company-name' with your company name. This is the NX project scope that allows you to import libraries using @company-name
 
-That's it for the renaming!  Now to test...
+That's it for the renaming! Now to test...
 
-```npm install```
+`npm install`
 
-```npx nx run example-app-angular:serve``` (where example-app-angular is the name you replaced with above)
+`npx nx run example-app-angular:serve` (where example-app-angular is the name you replaced with above)
 
 You should now load your example app!
 
@@ -29,7 +42,7 @@ To run the license checker, use
 
 # Important - Utilizing this Repo
 
-Most of the commands to generate projects/capabilities/apps are default to NX, Ionic, or Angular (in that order), so we will NOT include their specific instructions since as the packages update so will the documentation.  
+Most of the commands to generate projects/capabilities/apps are default to NX, Ionic, or Angular (in that order), so we will NOT include their specific instructions since as the packages update so will the documentation.
 
 With that said, there are some special things to keep in mind...
 
@@ -41,13 +54,13 @@ nx g nx-stylelint:configuration --project <projectName>
 
 ## Generate an application
 
-The normal NX command to generate an app is `nx g @nrwl/react:app my-app` ; however, there are some special steps to generate an Ionic App.  These are defined well in [Eric Jeker's post here](https://medium.com/@eric.jeker/how-to-integrate-ionic-in-nrwl-nx-3493fcb7e85e)
+The normal NX command to generate an app is `nx g @nx/react:app my-app` ; however, there are some special steps to generate an Ionic App. These are defined well in [Eric Jeker's post here](https://medium.com/@eric.jeker/how-to-integrate-ionic-in-nrwl-nx-3493fcb7e85e)
 
 When using Nx, you can create multiple applications and libraries in the same workspace.
 
 ## Generate a VUE application
 
-Since Nx doesn't *officially* support Vue, we configured this project to make it work for you 😎
+Since Nx doesn't _officially_ support Vue, we configured this project to make it work for you 😎
 
 Nx supports Vite [Visit Nx Official docs for Vite](https://nx.dev/packages/vite) to learn more, and Vite supports Vue, so we used this configs to run Vue into our monorepos!
 
@@ -56,7 +69,7 @@ Nx supports Vite [Visit Nx Official docs for Vite](https://nx.dev/packages/vite)
 3. Go to `apps/my-vue-app` and create a new `project.json`.
 4. Copy the `properties` from the `project.json` file from `apps/example-vue-app` and paste it inside the new `project.json` file generated for the new Vue application in the step 3.
 5. Inside the new `project.json` file generated, replace all `example-app-vue` instances with the name of your Vue app created in step 1.
-6. Now you just need to `extends` the `tsconfig.base.json` root file in your `tsconfig.json` Vue application file by adding `"extends": "../../tsconfig.base.json"` at the top of the array.
+6. Now you just need to `extends` the `tsconfig.json` root file in your `tsconfig.json` Vue application file by adding `"extends": "../../tsconfig.json"` at the top of the array.
 
 And that's it! You will be able to run and serve your Vue application by running `nx serve your-app-name` (where your-app-name is the name of the application you created).
 
@@ -89,7 +102,7 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 ## Generate a library
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+Run `nx g @nx/react:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
@@ -101,7 +114,7 @@ Run `npx nx run example-app-angular:serve` for a dev server. Navigate to http://
 
 ## Code scaffolding
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+Run `nx g @nx/react:component my-component --project=my-app` to generate a new component.
 
 ## Build
 

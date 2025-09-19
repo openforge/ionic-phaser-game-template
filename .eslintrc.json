@@ -1,6 +1,6 @@
 {
     "root": true,
-    "plugins": ["prettier", "simple-import-sort", "@angular-eslint", "@typescript-eslint", "import"],
+    "plugins": ["@nx","prettier", "simple-import-sort", "@angular-eslint", "@typescript-eslint", "import"],
     "parserOptions": {
         "project": "tsconfig.*.json",
         "sourceType": "module"
@@ -13,44 +13,53 @@
         "import/resolver": {
             "node": {
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            },
+            "typescript": {
+                "alwaysTryTypes": true
             }
         }
     },
-    "ignorePatterns": ["node_modules/**"],
+    "ignorePatterns": ["node_modules/**", "test.ts", "main.ts", "**.vue"],
     "overrides": [
         {
-            "files": ["*.ts"],
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.vue"],
+            "rules": {
+                "vue/multi-word-component-names": "off"
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "project": ["./tsconfig.json"],
+                "sourceType": "module",
+                "ecmaFeatures": {
+                    "jsx": true
+                }
+            },
             "extends": [
                 "eslint:recommended",
                 "plugin:@angular-eslint/recommended",
                 "plugin:@angular-eslint/template/process-inline-templates",
-                "plugin:@angular-eslint/ng-cli-compat",
-                "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
                 "plugin:@typescript-eslint/recommended",
                 "plugin:@typescript-eslint/recommended-requiring-type-checking",
                 "plugin:import/recommended",
                 "plugin:import/typescript",
                 "plugin:prettier/recommended",
-                "prettier",
-                "plugin:@angular-eslint/recommended--extra"
+                "prettier"
             ],
             "rules": {
-                "import/no-unresolved": "off",
+                "@typescript-eslint/no-unsafe-argument": "warn",
                 "@typescript-eslint/no-misused-promises": [
-                    "warn",
+                    "error",
                     {
                         "checksVoidReturn": true,
                         "checksConditionals": true
                     }
                 ],
                 "@typescript-eslint/unbound-method": "off",
-                "@typescript-eslint/restrict-plus-operands": [
-                    "error",
-                    {
-                        "checkCompoundAssignments": true
-                    }
-                ],
-                "@typescript-eslint/restrict-template-expressions": "off",
+                "@typescript-eslint/restrict-plus-operands": "error",
+                "@typescript-eslint/restrict-template-expressions": "error",
                 "@typescript-eslint/no-floating-promises": [
                     "error",
                     {
@@ -58,17 +67,13 @@
                         "ignoreIIFE": true
                     }
                 ],
-                "@typescript-eslint/naming-convention": "off",
-                "@typescript-eslint/require-await": "off",
-                "no-empty-function": "off",
+                "no-empty-function": "error",
                 "@typescript-eslint/no-empty-function": [
                     "error",
                     {
                         "allow": ["constructors"]
                     }
                 ],
-                "@typescript-eslint/await-thenable": "off",
-                "@typescript-eslint/no-unused-vars": "error",
                 "@typescript-eslint/no-unused-expressions": [
                     "error",
                     {
@@ -76,11 +81,7 @@
                         "allowTernary": true
                     }
                 ],
-                "@typescript-eslint/ban-types": "error",
-                "@typescript-eslint/member-ordering": "error",
                 "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-                "@typescript-eslint/dot-notation": "error",
-                "@typescript-eslint/no-shadow": "error",
                 "@typescript-eslint/no-this-alias": [
                     "error",
                     {
@@ -88,13 +89,13 @@
                     }
                 ],
                 "@typescript-eslint/explicit-member-accessibility": [
-                    "off",
+                    "error",
                     {
                         "accessibility": "explicit"
                     }
                 ],
                 "@typescript-eslint/no-inferrable-types": [
-                    "off",
+                    "error",
                     {
                         "ignoreParameters": true
                     }
@@ -142,7 +143,7 @@
                 ],
                 "no-underscore-dangle": "off",
                 "import/no-cycle": [
-                    "error",
+                    "off",
                     {
                         "maxDepth": 10,
                         "ignoreExternal": true
@@ -157,15 +158,10 @@
         },
         {
             "files": ["*.js"],
+            "parserOptions": {
+                "sourceType": "module"
+            },
             "parser": "babel-eslint"
-        },
-        {
-            "files": ["*.html"],
-            "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@nrwl/nx/angular-template"]
-        },
-        {
-            "files": ["*.tsx"],
-            "parser": "@typescript-eslint/parser"
         }
     ]
 }

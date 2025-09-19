@@ -11,7 +11,7 @@ export class Warrior extends Human {
     public name: string = 'Warrior ' + Math.floor(Math.random() * 1000).toString(); // * If not passed in default to random name
     public stats: WarriorStats; // * The Warrior's Stats
 
-    constructor(data?: Warrior) {
+    public constructor(data?: Warrior) {
         super(data);
     }
 
@@ -29,6 +29,7 @@ export class Warrior extends Human {
         } catch (e) {
             console.error('Error creating warrior');
         }
+        return Promise.resolve(tempObject);
     }
 
     /**
@@ -38,5 +39,6 @@ export class Warrior extends Human {
     public async doPushUps() {
         PhaserSingletonService.actionsHistory.push(this.name + ' is doing pushups.  XP Gained');
         // TODO - Warrior increases XP by 1
+        return Promise.resolve();
     }
 }
