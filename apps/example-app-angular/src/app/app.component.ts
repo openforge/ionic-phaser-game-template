@@ -18,7 +18,10 @@ export class AppComponent implements OnDestroy {
     public warriors: Warrior[] = []; // * Array of Warriors since they don't currently have a graphic associated
 
     // * for our app template to use the actions History)
-    constructor(public phaserInstance: PhaserSingletonService, public modalController: ModalController) {
+    public constructor(
+        public phaserInstance: PhaserSingletonService,
+        public modalController: ModalController
+    ) {
         this.actionsHistoryRef = PhaserSingletonService.actionsHistory;
     }
 
@@ -55,12 +58,13 @@ export class AppComponent implements OnDestroy {
         // * This function creates an 'experience' event that modifies the Warrior
         const xpEvent = new Event();
         console.log('createEvent()', 'value = ', xpEvent.value);
+        return Promise.resolve();
     }
 
     /**
      * * Need to handle the destroy method so we dont lock up our computer!
      */
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         PhaserSingletonService.destroyActiveGame();
     }
 }

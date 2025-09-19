@@ -17,13 +17,10 @@ export class HomePageComponent implements OnInit {
      * If we don't delay it, the canvas size in preload() and create() will be 0.
      * With the delay the canvas size will be set correctly.
      */
-    async ngOnInit(): Promise<void> {
+    public async ngOnInit(): Promise<void> {
         console.log('HomePageComponent', 'ngOnInit');
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        setTimeout(this.init, 500);
-    }
-
-    async init(): Promise<void> {
-        await PhaserSingletonService.init();
+        setTimeout(() => PhaserSingletonService.init(), 500);
+        return Promise.resolve();
     }
 }

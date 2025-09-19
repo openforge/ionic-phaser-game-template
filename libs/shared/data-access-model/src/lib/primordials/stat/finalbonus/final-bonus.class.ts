@@ -6,7 +6,7 @@
 import { BaseStat } from '../stat.base.class';
 
 export class FinalBonus extends BaseStat {
-    constructor(value, multiplier) {
+    public constructor(value, multiplier) {
         super(value, multiplier);
     }
 }

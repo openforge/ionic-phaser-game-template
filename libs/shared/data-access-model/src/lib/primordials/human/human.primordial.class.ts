@@ -4,7 +4,7 @@
 export class Human {
     public name: string; // * All humans have a name
 
-    constructor(data?: Human) {
+    public constructor(data?: Human) {
         console.log('Data Access Model', 'human.class', 'constructor()', data);
         Object.assign(this, data);
     }
@@ -23,5 +23,6 @@ export class Human {
         } catch (e) {
             console.error('Data Access Model', 'human.class', 'Error creating Human');
         }
+        return Promise.resolve(tempObject);
     }
 }

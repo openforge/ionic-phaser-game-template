@@ -4,11 +4,11 @@
 
 export class Event {
     // TODO - Need to determine how to type this
-    statType; // * The type of stat that this event effects
-    title: string = 'Random Event'; // * Title of the random event
-    value: number = 1; // * The numeric value of the change.  Defaults to 1
+    public statType; // * The type of stat that this event effects
+    public title = 'Random Event'; // * Title of the random event
+    public value = 1; // * The numeric value of the change.  Defaults to 1
 
-    constructor() {
+    public constructor() {
         console.log('Event', 'constructor');
     }
 }

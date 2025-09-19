@@ -4,21 +4,17 @@
     "projectType": "library",
     "sourceRoot": "libs/example-app-angular/ionic/ui-modals/src",
     "prefix": "company-name",
+    "tags": [],
     "targets": {
         "test": {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/libs/example-app-angular/ionic/ui-modals"],
             "options": {
-                "jestConfig": "libs/example-app-angular/ionic/ui-modals/jest.config.ts",
-                "passWithNoTests": true
+                "jestConfig": "libs/example-app-angular/ionic/ui-modals/jest.config.ts"
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": ["libs/example-app-angular/ionic/ui-modals/src/**/*.ts", "libs/example-app-angular/ionic/ui-modals/src/**/*.html"]
-            }
+            "executor": "@nx/eslint:lint"
         }
-    },
-    "tags": []
+    }
 }

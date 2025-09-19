@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable no-magic-numbers, @typescript-eslint/no-unsafe-argument */
+// eslint-disable-next-line import/no-cycle
 import { CheapSword, FancySword, Human, SwordTypeEnum } from '@company-name/shared/data-access-model';
 import { PhaserSingletonService } from '@company-name/shared-phaser-singleton';
 import * as Phaser from 'phaser';
@@ -12,7 +13,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
     public static atlast = 'assets/blacksmith/blacksmith_sprites_atlas.json';
     public static animation = 'assets/blacksmith/blacksmith_sprites_anim.json';
 
-    constructor(phaserScene: Phaser.Scene) {
+    public constructor(phaserScene: Phaser.Scene) {
         // * Set the blacksmith's position relative to Phaser's Origin
         super(phaserScene, 0.6, 1, Blacksmith.hammeringKey);
         this.scene.add.existing(this);
@@ -41,6 +42,7 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
         } catch (e) {
             console.error('Error creating blacksmith');
         }
+        return Promise.resolve(tempObject);
     }
 
     /**
@@ -77,5 +79,6 @@ export class Blacksmith extends Phaser.GameObjects.Sprite implements Human {
 
         // * Now let's play the animation associated with
         this.play(Blacksmith.idleKey);
+        return Promise.resolve();
     }
 }
